@@ -19,6 +19,7 @@
 
 - (UserDataModel *)getUserDataModel;
 - (void)loadModelFromDisk;
+- (void)saveModelToDisk;
 - (void)resetIACT;
 
 @end

@@ -33,6 +33,26 @@
 		9D39729C15A1FFB9006C472C /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D39729B15A1FFB8006C472C /* Default@2x.png */; };
 		9D3972A615A20101006C472C /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D3972A515A20101006C472C /* Icon@2x.png */; };
 		9D3972AD15A2091D006C472C /* ThoughtInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D3972AC15A2091D006C472C /* ThoughtInstance.m */; };
+		9DA9C5AE15BFFCC60036C59C /* blueButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DA9C5AA15BFFCC60036C59C /* blueButton.png */; };
+		9DA9C5AF15BFFCC60036C59C /* blueButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DA9C5AB15BFFCC60036C59C /* blueButton@2x.png */; };
+		9DA9C5B015BFFCC60036C59C /* blueButtonHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DA9C5AC15BFFCC60036C59C /* blueButtonHighlight.png */; };
+		9DA9C5B115BFFCC60036C59C /* blueButtonHighlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DA9C5AD15BFFCC60036C59C /* blueButtonHighlight@2x.png */; };
+		9DA9C5BB15BFFE160036C59C /* greenButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DA9C5B715BFFE160036C59C /* greenButton.png */; };
+		9DA9C5BC15BFFE160036C59C /* greenButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DA9C5B815BFFE160036C59C /* greenButton@2x.png */; };
+		9DA9C5BD15BFFE160036C59C /* greenButtonHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DA9C5B915BFFE160036C59C /* greenButtonHighlight.png */; };
+		9DA9C5BE15BFFE160036C59C /* greenButtonHighlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DA9C5BA15BFFE160036C59C /* greenButtonHighlight@2x.png */; };
+		9DA9C5C015C002A10036C59C /* 09-chat-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DA9C5BF15C002A10036C59C /* 09-chat-2.png */; };
+		9DA9C5C215C003AF0036C59C /* Chat.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DA9C5C115C003AF0036C59C /* Chat.png */; };
+		9DA9C5C415C004A10036C59C /* Calendar-Month.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DA9C5C315C004A10036C59C /* Calendar-Month.png */; };
+		9DA9C5C915C00F160036C59C /* whiteButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DA9C5C515C00F150036C59C /* whiteButton.png */; };
+		9DA9C5CA15C00F160036C59C /* whiteButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DA9C5C615C00F150036C59C /* whiteButton@2x.png */; };
+		9DA9C5CB15C00F160036C59C /* whiteButtonHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DA9C5C715C00F150036C59C /* whiteButtonHighlight.png */; };
+		9DA9C5CC15C00F160036C59C /* whiteButtonHighlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DA9C5C815C00F150036C59C /* whiteButtonHighlight@2x.png */; };
+		9DA9C5D115C010FB0036C59C /* orangeButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DA9C5CD15C010FA0036C59C /* orangeButton.png */; };
+		9DA9C5D215C010FB0036C59C /* orangeButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DA9C5CE15C010FA0036C59C /* orangeButton@2x.png */; };
+		9DA9C5D315C010FB0036C59C /* orangeButtonHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DA9C5CF15C010FB0036C59C /* orangeButtonHighlight.png */; };
+		9DA9C5D415C010FB0036C59C /* orangeButtonHighlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DA9C5D015C010FB0036C59C /* orangeButtonHighlight@2x.png */; };
+		9DA9C5D915C0178C0036C59C /* RecordAgainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA9C5D815C0178C0036C59C /* RecordAgainViewController.m */; };
 		9DDA5F0815A31A0200D775DF /* ThoughtDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DDA5F0715A31A0200D775DF /* ThoughtDetailViewController.m */; };
 		9DE99EF315BED11D003F727F /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE99EE715BED002003F727F /* libRestKit.a */; };
 		9DE99EF515BED138003F727F /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE99EF415BED138003F727F /* CFNetwork.framework */; };
@@ -130,6 +150,32 @@
 		9D3972A515A20101006C472C /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../Icon@2x.png"; sourceTree = "<group>"; };
 		9D3972AB15A2091C006C472C /* ThoughtInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThoughtInstance.h; sourceTree = "<group>"; };
 		9D3972AC15A2091D006C472C /* ThoughtInstance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThoughtInstance.m; sourceTree = "<group>"; };
+		9DA9C5AA15BFFCC60036C59C /* blueButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueButton.png; sourceTree = "<group>"; };
+		9DA9C5AB15BFFCC60036C59C /* blueButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blueButton@2x.png"; sourceTree = "<group>"; };
+		9DA9C5AC15BFFCC60036C59C /* blueButtonHighlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueButtonHighlight.png; sourceTree = "<group>"; };
+		9DA9C5AD15BFFCC60036C59C /* blueButtonHighlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blueButtonHighlight@2x.png"; sourceTree = "<group>"; };
+		9DA9C5B215BFFD350036C59C /* greyButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greyButton.png; sourceTree = "<group>"; };
+		9DA9C5B315BFFD350036C59C /* greyButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "greyButton@2x.png"; sourceTree = "<group>"; };
+		9DA9C5B415BFFD350036C59C /* greyButton@2xpng */ = {isa = PBXFileReference; lastKnownFileType = file; path = "greyButton@2xpng"; sourceTree = "<group>"; };
+		9DA9C5B515BFFD350036C59C /* greyButtonHighlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greyButtonHighlight.png; sourceTree = "<group>"; };
+		9DA9C5B615BFFD350036C59C /* greyButtonHighlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "greyButtonHighlight@2x.png"; sourceTree = "<group>"; };
+		9DA9C5B715BFFE160036C59C /* greenButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenButton.png; sourceTree = "<group>"; };
+		9DA9C5B815BFFE160036C59C /* greenButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "greenButton@2x.png"; sourceTree = "<group>"; };
+		9DA9C5B915BFFE160036C59C /* greenButtonHighlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenButtonHighlight.png; sourceTree = "<group>"; };
+		9DA9C5BA15BFFE160036C59C /* greenButtonHighlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "greenButtonHighlight@2x.png"; sourceTree = "<group>"; };
+		9DA9C5BF15C002A10036C59C /* 09-chat-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "09-chat-2.png"; sourceTree = "<group>"; };
+		9DA9C5C115C003AF0036C59C /* Chat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Chat.png; sourceTree = "<group>"; };
+		9DA9C5C315C004A10036C59C /* Calendar-Month.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Calendar-Month.png"; sourceTree = "<group>"; };
+		9DA9C5C515C00F150036C59C /* whiteButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteButton.png; sourceTree = "<group>"; };
+		9DA9C5C615C00F150036C59C /* whiteButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "whiteButton@2x.png"; sourceTree = "<group>"; };
+		9DA9C5C715C00F150036C59C /* whiteButtonHighlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteButtonHighlight.png; sourceTree = "<group>"; };
+		9DA9C5C815C00F150036C59C /* whiteButtonHighlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "whiteButtonHighlight@2x.png"; sourceTree = "<group>"; };
+		9DA9C5CD15C010FA0036C59C /* orangeButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = orangeButton.png; sourceTree = "<group>"; };
+		9DA9C5CE15C010FA0036C59C /* orangeButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "orangeButton@2x.png"; sourceTree = "<group>"; };
+		9DA9C5CF15C010FB0036C59C /* orangeButtonHighlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = orangeButtonHighlight.png; sourceTree = "<group>"; };
+		9DA9C5D015C010FB0036C59C /* orangeButtonHighlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "orangeButtonHighlight@2x.png"; sourceTree = "<group>"; };
+		9DA9C5D715C0178C0036C59C /* RecordAgainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordAgainViewController.h; sourceTree = "<group>"; };
+		9DA9C5D815C0178C0036C59C /* RecordAgainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordAgainViewController.m; sourceTree = "<group>"; };
 		9DDA5F0615A31A0200D775DF /* ThoughtDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThoughtDetailViewController.h; sourceTree = "<group>"; };
 		9DDA5F0715A31A0200D775DF /* ThoughtDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThoughtDetailViewController.m; sourceTree = "<group>"; };
 		9DE99EDB15BED002003F727F /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
@@ -236,8 +282,6 @@
 			isa = PBXGroup;
 			children = (
 				9D39725015A1C4C2006C472C /* MainStoryboard.storyboard */,
-				9DDA5F0615A31A0200D775DF /* ThoughtDetailViewController.h */,
-				9DDA5F0715A31A0200D775DF /* ThoughtDetailViewController.m */,
 				9D231F6F15A21122005C79A3 /* thoughtDisplay */,
 				9D39728915A1EEF2006C472C /* Thought History */,
 				9D39727D15A1E647006C472C /* Record Thought */,
@@ -294,6 +338,7 @@
 		9D39727615A1DA14006C472C /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				9DA9C5A915BFFCB30036C59C /* Buttons */,
 				9D39729815A1FF8C006C472C /* icons/splash */,
 				9D39727715A1DA25006C472C /* backgrounds */,
 			);
@@ -331,6 +376,7 @@
 		9D39728915A1EEF2006C472C /* Thought History */ = {
 			isa = PBXGroup;
 			children = (
+				9DA9C5D515C017550036C59C /* Thought Detail */,
 				9D39728D15A1F1F3006C472C /* ThoughtHistoryViewController.h */,
 				9D39728E15A1F1F3006C472C /* ThoughtHistoryViewController.m */,
 			);
@@ -340,12 +386,62 @@
 		9D39729815A1FF8C006C472C /* icons/splash */ = {
 			isa = PBXGroup;
 			children = (
+				9DA9C5C115C003AF0036C59C /* Chat.png */,
+				9DA9C5C315C004A10036C59C /* Calendar-Month.png */,
+				9DA9C5BF15C002A10036C59C /* 09-chat-2.png */,
 				9D3972A515A20101006C472C /* Icon@2x.png */,
 				9D39729B15A1FFB8006C472C /* Default@2x.png */,
 				9D39729915A1FFAD006C472C /* Default.png */,
 				9D39729215A1FF7B006C472C /* icon.png */,
 			);
 			name = icons/splash;
+			sourceTree = "<group>";
+		};
+		9DA9C5A915BFFCB30036C59C /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				9DA9C5CD15C010FA0036C59C /* orangeButton.png */,
+				9DA9C5CE15C010FA0036C59C /* orangeButton@2x.png */,
+				9DA9C5CF15C010FB0036C59C /* orangeButtonHighlight.png */,
+				9DA9C5D015C010FB0036C59C /* orangeButtonHighlight@2x.png */,
+				9DA9C5C515C00F150036C59C /* whiteButton.png */,
+				9DA9C5C615C00F150036C59C /* whiteButton@2x.png */,
+				9DA9C5C715C00F150036C59C /* whiteButtonHighlight.png */,
+				9DA9C5C815C00F150036C59C /* whiteButtonHighlight@2x.png */,
+				9DA9C5B715BFFE160036C59C /* greenButton.png */,
+				9DA9C5B815BFFE160036C59C /* greenButton@2x.png */,
+				9DA9C5B915BFFE160036C59C /* greenButtonHighlight.png */,
+				9DA9C5BA15BFFE160036C59C /* greenButtonHighlight@2x.png */,
+				9DA9C5B215BFFD350036C59C /* greyButton.png */,
+				9DA9C5B315BFFD350036C59C /* greyButton@2x.png */,
+				9DA9C5B415BFFD350036C59C /* greyButton@2xpng */,
+				9DA9C5B515BFFD350036C59C /* greyButtonHighlight.png */,
+				9DA9C5B615BFFD350036C59C /* greyButtonHighlight@2x.png */,
+				9DA9C5AA15BFFCC60036C59C /* blueButton.png */,
+				9DA9C5AB15BFFCC60036C59C /* blueButton@2x.png */,
+				9DA9C5AC15BFFCC60036C59C /* blueButtonHighlight.png */,
+				9DA9C5AD15BFFCC60036C59C /* blueButtonHighlight@2x.png */,
+			);
+			name = Buttons;
+			sourceTree = "<group>";
+		};
+		9DA9C5D515C017550036C59C /* Thought Detail */ = {
+			isa = PBXGroup;
+			children = (
+				9DA9C5D615C017650036C59C /* Record Again */,
+				9DDA5F0615A31A0200D775DF /* ThoughtDetailViewController.h */,
+				9DDA5F0715A31A0200D775DF /* ThoughtDetailViewController.m */,
+			);
+			name = "Thought Detail";
+			sourceTree = "<group>";
+		};
+		9DA9C5D615C017650036C59C /* Record Again */ = {
+			isa = PBXGroup;
+			children = (
+				9DA9C5D715C0178C0036C59C /* RecordAgainViewController.h */,
+				9DA9C5D815C0178C0036C59C /* RecordAgainViewController.m */,
+			);
+			name = "Record Again";
 			sourceTree = "<group>";
 		};
 		9DE99EDC15BED002003F727F /* Products */ = {
@@ -463,6 +559,25 @@
 				9D39729A15A1FFAD006C472C /* Default.png in Resources */,
 				9D39729C15A1FFB9006C472C /* Default@2x.png in Resources */,
 				9D3972A615A20101006C472C /* Icon@2x.png in Resources */,
+				9DA9C5AE15BFFCC60036C59C /* blueButton.png in Resources */,
+				9DA9C5AF15BFFCC60036C59C /* blueButton@2x.png in Resources */,
+				9DA9C5B015BFFCC60036C59C /* blueButtonHighlight.png in Resources */,
+				9DA9C5B115BFFCC60036C59C /* blueButtonHighlight@2x.png in Resources */,
+				9DA9C5BB15BFFE160036C59C /* greenButton.png in Resources */,
+				9DA9C5BC15BFFE160036C59C /* greenButton@2x.png in Resources */,
+				9DA9C5BD15BFFE160036C59C /* greenButtonHighlight.png in Resources */,
+				9DA9C5BE15BFFE160036C59C /* greenButtonHighlight@2x.png in Resources */,
+				9DA9C5C015C002A10036C59C /* 09-chat-2.png in Resources */,
+				9DA9C5C215C003AF0036C59C /* Chat.png in Resources */,
+				9DA9C5C415C004A10036C59C /* Calendar-Month.png in Resources */,
+				9DA9C5C915C00F160036C59C /* whiteButton.png in Resources */,
+				9DA9C5CA15C00F160036C59C /* whiteButton@2x.png in Resources */,
+				9DA9C5CB15C00F160036C59C /* whiteButtonHighlight.png in Resources */,
+				9DA9C5CC15C00F160036C59C /* whiteButtonHighlight@2x.png in Resources */,
+				9DA9C5D115C010FB0036C59C /* orangeButton.png in Resources */,
+				9DA9C5D215C010FB0036C59C /* orangeButton@2x.png in Resources */,
+				9DA9C5D315C010FB0036C59C /* orangeButtonHighlight.png in Resources */,
+				9DA9C5D415C010FB0036C59C /* orangeButtonHighlight@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,6 +601,7 @@
 				9D3972AD15A2091D006C472C /* ThoughtInstance.m in Sources */,
 				9D231F7515A216AD005C79A3 /* ThoughtDisplayViewController.m in Sources */,
 				9DDA5F0815A31A0200D775DF /* ThoughtDetailViewController.m in Sources */,
+				9DA9C5D915C0178C0036C59C /* RecordAgainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

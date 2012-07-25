@@ -17,4 +17,6 @@
 
 - (IBAction)resetIACT:(id)sender;
 
+@property (strong, nonatomic) IBOutlet UIButton *resetIACTButton;
+@property (strong, nonatomic) IBOutlet UIButton *sendFeedbackButton;
 @end

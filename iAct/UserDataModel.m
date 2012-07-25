@@ -49,19 +49,19 @@
 
 - (void)saveModelToDisk {
     
-    NSString *docDir=[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)objectAtIndex:0];
-    NSString *thoughtFile=[docDir stringByAppendingPathComponent:@"thoughtfile.archive"];
+    NSString *thoughtFile = [self getFileName];
     
     NSMutableData *data = [[NSMutableData alloc] init];
     NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
     [archiver encodeObject:_thoughtArray forKey:@"Data"];
     [archiver finishEncoding];
+    
+    //need different file names for different users, in case two users use the same phone
     [data writeToFile:thoughtFile atomically:YES];
 }
 - (void)loadModelFromDisk {
     
-    NSString *docDir=[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)objectAtIndex:0];
-    NSString *thoughtFile=[docDir stringByAppendingPathComponent:@"thoughtfile.archive"];
+    NSString *thoughtFile = [self getFileName];
     
     if ([[NSFileManager defaultManager] fileExistsAtPath:thoughtFile]) {
         NSData *data = [[NSMutableData alloc]initWithContentsOfFile:thoughtFile];
@@ -73,12 +73,23 @@
 
 - (void)deleteModelFromDisk {
     
-    NSString *docDir=[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)objectAtIndex:0];
-    NSString *thoughtFile=[docDir stringByAppendingPathComponent:@"thoughtfile.archive"];
+    NSString *thoughtFile=[self getFileName];
     
     if ([[NSFileManager defaultManager] fileExistsAtPath:thoughtFile]) {
         [[NSFileManager defaultManager] removeItemAtPath:thoughtFile error:nil];
     }
+}
+
+
+//need different file names for different users, in case two users use the same phone
+//therefore I am appending user email to start of save files.
+- (NSString *) getFileName {
+    NSString *docDir=[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)objectAtIndex:0];
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *username = [userDefaults objectForKey:@"username"];
+    NSString *filename = [username stringByAppendingString:@"thoughtfile.archive"];
+    NSString *thoughtFile=[docDir stringByAppendingPathComponent:filename];
+    return thoughtFile;
 }
 
 #pragma mark NSCoding methods

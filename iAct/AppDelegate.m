@@ -70,6 +70,10 @@
     [self.model loadModelFromDisk];
 }
 
+- (void)saveModelToDisk {
+    [self.model saveModelToDisk];
+}
+
 - (void)resetIACT {
     //realloc the model to kill the old one.
     self.model = [[UserDataModel alloc] init];

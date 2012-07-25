@@ -8,11 +8,6 @@
 
 #import "ViewController.h"
 
-
-
-#define kTestUser @"giovanni@thecoia.com"
-#define kTestPassword  @"password"
-
 @interface ViewController  ()
 
 @end
@@ -30,15 +25,15 @@
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     if ([userDefaults boolForKey:@"loginStatus"] == YES) {  
         [self performSegueWithIdentifier:@"toMainMenu" sender:self];
+        
+        //if already logged in loadthe mdoel
+        AppDelegate *sharedData = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        [sharedData loadModelFromDisk];
     }
 }
 
 - (void)viewDidLoad
 {
-   AppDelegate *sharedData = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    [sharedData loadModelFromDisk];
-    
-
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }
@@ -66,10 +61,6 @@
     
     //validate using restkit to server
     [self validateLogin:email withPassword:password];
-        //user credentials good, save em and log in
-        
-        //perform tranistion to the main menu
-        
 }
 
 - (void)userIsLoggedIn {
@@ -87,7 +78,6 @@
     NSDictionary* params = [NSDictionary dictionaryWithObjectsAndKeys:userName, @"email", password, @"password", nil];
     //POST login deets
     [[RKClient sharedClient] post:@"/iphonelogin" params:params delegate:self]; 
-   
 }
 
 //this method listens for the server response - handled because we set the delegate to self
@@ -138,6 +128,10 @@
             [userDefaults setObject:userName forKey:@"name"];
             [userDefaults setObject:userID forKey:@"ID"];
             
+            
+            //load the users data model
+            AppDelegate *sharedData = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+            [sharedData loadModelFromDisk];
             
             [self performSegueWithIdentifier:@"toMainMenu" sender:self];
         }  

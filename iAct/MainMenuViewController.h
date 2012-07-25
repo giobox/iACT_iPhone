@@ -7,10 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
 
 @interface MainMenuViewController : UIViewController
 
 @property (strong, nonatomic) IBOutlet UILabel *welcomeLabel;
 - (IBAction)logOut:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *recordThoughtButton;
+@property (strong, nonatomic) IBOutlet UIButton *thoughtHistoryButton;
+@property (strong, nonatomic) IBOutlet UIButton *thoughtMapButton;
+@property (strong, nonatomic) IBOutlet UIButton *actInformationButton;
+@property (strong, nonatomic) IBOutlet UIButton *aboutIACTButton;
 
 @end

@@ -13,6 +13,8 @@
 @end
 
 @implementation AboutACTViewController
+@synthesize resetIACTButton;
+@synthesize sendFeedbackButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,12 +29,15 @@
 {
     //set wallpaper
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"paper.jpg"]];
+    [self customButtons];
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 }
 
 - (void)viewDidUnload
 {
+    [self setResetIACTButton:nil];
+    [self setSendFeedbackButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -85,6 +90,29 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
 		AppDelegate *sharedData = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         [sharedData resetIACT];
 	}
+    
 }
+    - (void)customButtons {
+        //load the images
+        
+        UIImage *whiteButtonImage = [[UIImage imageNamed:@"whiteButton.png"]
+                                     resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
+        UIImage *whiteButtonImageHighlight = [[UIImage imageNamed:@"whiteButtonHighlight.png"]
+                                              resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
+        
+        UIImage *redButtonImage = [[UIImage imageNamed:@"orangeButton.png"]
+                                     resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
+        UIImage *redButtonImageHighlight = [[UIImage imageNamed:@"orangeButtonHighlight.png"]
+                                              resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
+        // Set the background for the buttons
+        
+        [sendFeedbackButton setBackgroundImage:whiteButtonImage forState:UIControlStateNormal];
+        [sendFeedbackButton setBackgroundImage:whiteButtonImageHighlight forState:UIControlStateHighlighted];
+        
+        [resetIACTButton setBackgroundImage:redButtonImage forState:UIControlStateNormal];
+        [resetIACTButton setBackgroundImage:redButtonImageHighlight forState:UIControlStateHighlighted];
+    }
+
+
 
 @end

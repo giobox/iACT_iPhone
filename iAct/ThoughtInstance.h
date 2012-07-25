@@ -15,7 +15,10 @@
 @property (strong, nonatomic) NSDate *thoughtTime;
 @property float thoughtRating;
 @property (strong, nonatomic) CLLocation *currentLocation;
+@property (strong, nonatomic) NSMutableArray *instanceArray;
+
 
 - (void)setThoughtWithName:(NSString *)thoughtName andTime:(NSDate *)time withRating:(float)rating andLocation:(CLLocation *)thoughtLocation;
+- (void)addInstanceOfThoughtWithTime:(NSDate *)time withRating:(float)rating andLocation:(CLLocation *)thoughtLocation;
 
 @end

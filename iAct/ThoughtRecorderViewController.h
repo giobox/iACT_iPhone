@@ -12,10 +12,11 @@
 //import my thought object definition
 #import "ThoughtInstance.h"
 #import "AppDelegate.h"
+#import <RestKit/RestKit.h>
 
 #import "ThoughtDisplayViewController.h"
 
-@interface ThoughtRecorderViewController : UIViewController <CLLocationManagerDelegate>
+@interface ThoughtRecorderViewController : UIViewController <CLLocationManagerDelegate, RKRequestDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *thoughtDescription;
 @property (strong, nonatomic) IBOutlet UISlider *thoughtRatingSlider;
