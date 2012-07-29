@@ -9,13 +9,17 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 #import <RestKit/RestKit.h>
+#import "User.h"
 
 @interface ViewController : UIViewController <RKRequestDelegate>
 @property (strong, nonatomic) IBOutlet UITextField *emailAddressField;
 @property (strong, nonatomic) IBOutlet UITextField *passwordField;
 
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+
 - (IBAction)LoginButton:(id)sender;
-- (void)userIsLoggedIn;
+
 - (IBAction)hideKeyboard:(id)sender;
 
 @end

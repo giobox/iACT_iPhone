@@ -12,6 +12,8 @@
 
 @property (strong, nonatomic) CLLocation *currentLocation;
 @property (strong, nonatomic) AppDelegate *sharedData;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
 @end
 
@@ -22,6 +24,8 @@
 @synthesize locMan;
 @synthesize thoughtRatingSlider;
 @synthesize currentLocation;
+@synthesize managedObjectContext = __managedObjectContext;
+@synthesize fetchedResultsController = __fetchedResultsController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -36,7 +40,8 @@
 {
     //once we load the view start locating the user.
     //gives some time to get an accurate location fix, without leaving on for ages and killing battery.
-    
+    sharedData = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    self.managedObjectContext = sharedData.managedObjectContext;
     self.locMan = [[CLLocationManager alloc] init];
     self.locMan.delegate = self;
     locMan.distanceFilter= 200;
@@ -63,11 +68,9 @@
 }
 
 - (void) viewDidAppear:(BOOL)animated {
-//get the chosen thought
-    sharedData = (AppDelegate *)[[UIApplication sharedApplication] delegate];   
-    self.thought = sharedData.tempThought;
+
     //load the description into the view
-    self.thoughtDescriptionLabel.text = self.thought.thoughtDescription;
+    self.thoughtDescriptionLabel.text = self.thought.content;
 }
 - (IBAction)saveThought:(id)sender {
     float thoughtScore = self.thoughtRatingSlider.value;
@@ -76,8 +79,17 @@
     //handled in the location manager listener method which then stores location in currentlocation
     //however must shut GPS down
     [self.locMan stopUpdatingLocation];
-    //add the new instance
-    [self.thought addInstanceOfThoughtWithTime:thoughtTime withRating:thoughtScore andLocation:currentLocation];
+   
+    //create the occurence
+    ThoughtOccurance *occurance = [NSEntityDescription insertNewObjectForEntityForName:@"ThoughtOccurance" inManagedObjectContext:self.managedObjectContext];
+    occurance.date = thoughtTime;
+    occurance.initialRating = [NSNumber numberWithFloat:thoughtScore];
+    occurance.latitude = [NSNumber numberWithDouble:currentLocation.coordinate.latitude];
+    occurance.longitude = [NSNumber numberWithDouble:currentLocation.coordinate.longitude];
+    
+    [occurance setHasThought:thought];
+    [thought addHasOccuranceObject:occurance];
+    [self.managedObjectContext save:nil];
     
     //pop back to root of controller
     [self.navigationController popToRootViewControllerAnimated:YES];

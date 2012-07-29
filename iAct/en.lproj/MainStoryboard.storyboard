@@ -338,11 +338,11 @@
                                 </accessibility>
                             </imageView>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="C4c-LQ-PNw">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="286"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="172"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vzQ-FL-fiG">
-                                <rect key="frame" x="178" y="359" width="122" height="37"/>
+                                <rect key="frame" x="20" y="362" width="280" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Record Again">
@@ -353,32 +353,52 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Xd2-rT-XW0" kind="push" id="fUa-ZV-fQB"/>
+                                    <segue destination="Xd2-rT-XW0" kind="push" identifier="recordAgainSegue" id="fUa-ZV-fQB"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" alpha="0.75" contentMode="scaleToFill" text="Description of thought here." id="Yat-Ch-XIx">
-                                <rect key="frame" x="0.0" y="188" width="320" height="98"/>
+                                <rect key="frame" x="0.0" y="123" width="320" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Your Rating:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Mu4-xL-Fx6">
-                                <rect key="frame" x="20" y="367" width="99" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0.0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Ydv-Lj-n0p">
-                                <rect key="frame" x="127" y="367" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="SJx-zP-X4C">
+                                <rect key="frame" x="0.0" y="171" width="320" height="183"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="xuM-KK-xcq" detailTextLabel="71m-Ls-Hue" style="IBUITableViewCellStyleSubtitle" id="EZv-XQ-VOW">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Rating" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xuM-KK-xcq">
+                                                    <rect key="frame" x="10" y="2" width="56" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Date Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="71m-Ls-Hue">
+                                                    <rect key="frame" x="10" y="24" width="65" height="18"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="S56-hZ-btq" id="VHx-df-UZz"/>
+                                    <outlet property="delegate" destination="S56-hZ-btq" id="7tC-XC-fhA"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -386,7 +406,7 @@
                     <connections>
                         <outlet property="thoughtDescription" destination="Yat-Ch-XIx" id="Hyi-OL-Uux"/>
                         <outlet property="thoughtMap" destination="C4c-LQ-PNw" id="jp0-a3-0nx"/>
-                        <outlet property="thoughtRating" destination="Ydv-Lj-n0p" id="SQW-fJ-Rmf"/>
+                        <outlet property="thoughtOccuranceTable" destination="SJx-zP-X4C" id="bpt-tK-IHK"/>
                     </connections>
                 </viewController>
             </objects>
@@ -606,7 +626,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
-                                    <segue destination="S56-hZ-btq" kind="push" id="Jqz-hp-ZnW"/>
+                                    <segue destination="S56-hZ-btq" kind="push" identifier="occuranceSegue" id="Jqz-hp-ZnW"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -615,7 +635,16 @@
                             <outlet property="delegate" destination="gCO-QI-i3e" id="tFl-qV-Brd"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Thought History" id="GjA-8f-pLv"/>
+                    <navigationItem key="navigationItem" title="Thought History" id="GjA-8f-pLv">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="8CA-B6-2qv">
+                            <connections>
+                                <action selector="editThoughtList:" destination="gCO-QI-i3e" id="qBX-II-az1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="editButton" destination="8CA-B6-2qv" id="Wky-yJ-4Oe"/>
+                    </connections>
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="1514" y="483"/>
@@ -712,6 +741,85 @@
         <image name="Chat.png" width="60" height="60"/>
         <image name="black-material.jpg" width="640" height="960"/>
     </resources>
+    <classes>
+        <class className="ACTInformationViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ACTInformationViewController.h"/>
+        </class>
+        <class className="AboutACTViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AboutACTViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="resetIACT:"/>
+                <relationship kind="action" name="sendFeedback:"/>
+                <relationship kind="outlet" name="resetIACTButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="sendFeedbackButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="MainMenuViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainMenuViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="logOut:"/>
+                <relationship kind="outlet" name="aboutIACTButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="actInformationButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="recordThoughtButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="thoughtHistoryButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="thoughtMapButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="welcomeLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="RecordAgainViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RecordAgainViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="saveThought:"/>
+                <relationship kind="outlet" name="thoughtDescriptionLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="thoughtRatingSlider" candidateClass="UISlider"/>
+            </relationships>
+        </class>
+        <class className="ThoughtDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ThoughtDetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="thoughtDescription" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="thoughtMap" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="thoughtOccuranceTable" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="ThoughtDisplayViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ThoughtDisplayViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="finishViewing:"/>
+                <relationship kind="outlet" name="thoughtLocationDisplay" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="thoughtRatingDisplay" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="thoughtTextDisplay" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="ThoughtHistoryViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ThoughtHistoryViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="editThoughtList:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="editButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="ThoughtRecorderViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ThoughtRecorderViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="hideKeyboard:"/>
+                <relationship kind="action" name="recordThought:"/>
+                <relationship kind="action" name="userChangedThoughtRating:"/>
+                <relationship kind="outlet" name="recordThoughtButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="thoughtDescription" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="thoughtRating" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="thoughtRatingSlider" candidateClass="UISlider"/>
+            </relationships>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="LoginButton:"/>
+                <relationship kind="action" name="hideKeyboard:"/>
+                <relationship kind="outlet" name="emailAddressField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="passwordField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

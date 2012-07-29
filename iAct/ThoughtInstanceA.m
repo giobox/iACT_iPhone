@@ -7,6 +7,13 @@
 //
 
 #import "ThoughtInstance.h"
+@interface ThoughtInstanceA ()
+
+@property (strong, nonatomic) NSMutableArray *instanceArray;
+
+@end
+
+
 
 @implementation ThoughtInstance
 
@@ -25,6 +32,11 @@ if (_instanceArray == nil) _instanceArray = [[NSMutableArray alloc] init]; //laz
 return _instanceArray;
 }
 
+-(void)addThoughtInstance:(NSDictionary *)instanceParam {
+    [self.instanceArray addObject:instanceParam];
+}
+
+
 - (void)setThoughtWithName:(NSString *)thoughtName andTime:(NSDate *)time withRating:(float)rating andLocation:(CLLocation *)thoughtLocation {
     
     [self setThoughtDescription:thoughtName];
@@ -33,17 +45,21 @@ return _instanceArray;
     [self setCurrentLocation:thoughtLocation];
     NSDictionary *instanceParams = [[NSDictionary alloc]initWithObjectsAndKeys:time, @"time", rating, @"rating", thoughtLocation, @"location", nil];
     //initialise and then add first instance to instance array
-    [self.instanceArray addObject:instanceParams];
+    [self addThoughtInstance:instanceParams];
     
     
 }
 
 - (void)addInstanceOfThoughtWithTime:(NSDate *)instanceTime withRating:(float)instanceRating andLocation:(CLLocation *)instanceLocation {
     NSDictionary *instanceParams = [[NSDictionary alloc]initWithObjectsAndKeys:instanceTime, @"time", instanceRating, @"rating", instanceLocation, @"location", nil];
-        [self.instanceArray addObject:instanceParams];
+    [self addThoughtInstance:instanceParams];
 }
 
-#pragma mark NSCoding protocok methods
+-(NSInteger)getInstanceCount {
+    return self.instanceArray.count;
+}
+
+#pragma mark - NSCoding protocol methods
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
     [aCoder encodeObject:thoughtDescription forKey:@"thoughtDescription"];

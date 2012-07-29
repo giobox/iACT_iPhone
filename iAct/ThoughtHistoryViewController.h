@@ -8,9 +8,14 @@
 
 #import "ViewController.h"
 #import "AppDelegate.h"
-#import "ThoughtDisplayViewController.h"
+#import "ThoughtDetailViewController.h"
+#import "Thought.h"
+#import "PullToRefreshView.h"
 
 
-@interface ThoughtHistoryViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
+@interface ThoughtHistoryViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, PullToRefreshViewDelegate>
+
+- (IBAction)editThoughtList:(UIBarButtonItem *)sender;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *editButton;
 
 @end

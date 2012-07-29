@@ -10,10 +10,11 @@
 #import "AppDelegate.h"
 #import <CoreLocation/CoreLocation.h>
 #import <RestKit/RestKit.h>
+#import "ThoughtOccurance.h"
 
 @interface RecordAgainViewController : UIViewController <CLLocationManagerDelegate, RKRequestDelegate>
 @property (strong, nonatomic) IBOutlet UILabel *thoughtDescriptionLabel;
-@property (strong, nonatomic) ThoughtInstance *thought;
+@property (strong, nonatomic) Thought *thought;
 @property (strong, nonatomic) CLLocationManager *locMan;
 @property (strong, nonatomic) IBOutlet UISlider *thoughtRatingSlider;
 

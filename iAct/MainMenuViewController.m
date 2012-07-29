@@ -63,7 +63,7 @@
 - (IBAction)logOut:(id)sender {
     //save the user's model
     AppDelegate *sharedData = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    [sharedData saveModelToDisk];
+    
     
     //set all of the login details to null/no etc
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
@@ -71,6 +71,9 @@
     [userDefaults setObject:@"" forKey:@"username"];
     [userDefaults setObject:@"" forKey:@"password"];
     [self dismissModalViewControllerAnimated:YES];
+    
+    //clear the logged in user from memory
+    sharedData.loggedInUser = nil;
 }
 
 - (void)customButtons {

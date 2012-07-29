@@ -21,6 +21,7 @@
 @synthesize thoughtLocationDisplay;
 @synthesize thought;
 @synthesize thoughtPin;
+@synthesize occurance;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -39,12 +40,12 @@
 }
 
 - (void) viewWillAppear:(BOOL)animated {
-    //hide the bar
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    //hide the back button
+    self.navigationItem.hidesBackButton = TRUE;
     //update the map
-    [self setupMap];
-    self.thoughtTextDisplay.text = thought.thoughtDescription;
-    self.thoughtRatingDisplay.text = [NSString stringWithFormat:@"%1.1f",thought.thoughtRating];
+    //[self setupMap];
+    self.thoughtTextDisplay.text = thought.content;
+    self.thoughtRatingDisplay.text = [NSString stringWithFormat:@"%@",occurance.initialRating];
     
 }
 
@@ -58,10 +59,12 @@
 - (void)viewDidUnload
 {
     [self setThought:nil];
+    [self setOccurance:nil];
     [self setThoughtTextDisplay:nil];
     [self setThoughtRatingDisplay:nil];
     [self setThoughtLocationDisplay:nil];
     [self setThoughtPin:nil];
+    
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -79,13 +82,13 @@
 -(void)setupMap {
     //center the map on the thoughts location
     MKCoordinateRegion mapRegion;
-    mapRegion.center = thought.currentLocation.coordinate;
+    //mapRegion.center = thought.currentLocation.coordinate;
     mapRegion.span.latitudeDelta=0.007;
     mapRegion.span.longitudeDelta=0.007;
     [self.thoughtLocationDisplay setRegion:mapRegion animated:YES];    
    
     //drop a pin on it
-    thoughtPin = [[MKPlacemark alloc] initWithCoordinate:thought.currentLocation.coordinate addressDictionary:nil];
+    //thoughtPin = [[MKPlacemark alloc] initWithCoordinate:thought.currentLocation.coordinate addressDictionary:nil];
     [thoughtLocationDisplay addAnnotation:thoughtPin];
 }
 

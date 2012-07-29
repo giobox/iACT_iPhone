@@ -7,18 +7,20 @@
 //
 
 
-#import "ThoughtInstance.h"
 #import "ThoughtHistoryViewController.h"
+#import "RecordAgainViewController.h"
 #import <MapKit/MapKit.h>
 #import "AppDelegate.h"
+#import "Thought.h"
+#import "ThoughtOccurance.h"
 
-@interface ThoughtDetailViewController : UIViewController
+@interface ThoughtDetailViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) IBOutlet MKMapView *thoughtMap;
 @property (strong, nonatomic) IBOutlet UITextView *thoughtDescription;
-@property (strong, nonatomic) IBOutlet UILabel *thoughtRating;
+@property (strong, nonatomic) IBOutlet UITableView *thoughtOccuranceTable;
+@property (strong, nonatomic) Thought *thought;
 
-@property (strong, nonatomic) ThoughtInstance *thought;
 
-
+-(void)getInstances;
 @end

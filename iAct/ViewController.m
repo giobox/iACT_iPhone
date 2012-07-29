@@ -10,25 +10,30 @@
 
 @interface ViewController  ()
 
+@property AppDelegate *sharedData;
+
 @end
 
 @implementation ViewController
 @synthesize emailAddressField;
 @synthesize passwordField;
-
+@synthesize managedObjectContext = __managedObjectContext;
+@synthesize fetchedResultsController = __fetchedResultsController;
+@synthesize sharedData;
 
 -(void)viewDidAppear:(BOOL)animated {
     
-        
+    //get the database
+    sharedData = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    self.managedObjectContext = sharedData.managedObjectContext;
     
     //check if user is already logged in - no need to show login screen again
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     if ([userDefaults boolForKey:@"loginStatus"] == YES) {  
         [self performSegueWithIdentifier:@"toMainMenu" sender:self];
         
-        //if already logged in loadthe mdoel
-        AppDelegate *sharedData = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-        [sharedData loadModelFromDisk];
+        //if already logged in load the user
+        [self modelLoginWithEmail:[userDefaults stringForKey:@"username"] andName:nil];
     }
 }
 
@@ -63,14 +68,12 @@
     [self validateLogin:email withPassword:password];
 }
 
-- (void)userIsLoggedIn {
-    //method to confirm user logged in?
-}
 - (IBAction)hideKeyboard:(id)sender {
     [self.emailAddressField resignFirstResponder];
     [self.passwordField resignFirstResponder];
 }
 
+#pragma mark - Online user validation
 
 //this method validates login with server
 - (void)validateLogin:(NSString *)userName withPassword:(NSString *)password {
@@ -79,6 +82,8 @@
     //POST login deets
     [[RKClient sharedClient] post:@"/iphonelogin" params:params delegate:self]; 
 }
+
+
 
 //this method listens for the server response - handled because we set the delegate to self
 - (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {    
@@ -97,16 +102,9 @@
         [incorrectPasswordDialog show];
     }
     
-    if ([request isGET]) {  
-         NSLog(@"gRetrieved XML: %@", [response bodyAsString]);  
-        
-        if ([response isOK]) {  
-            // Success! Let's take a look at the data  
-            NSLog(@"oRetrieved XML: %@", [response bodyAsString]);  
-        }  
-        
-    } else if ([request isPOST]) {  
-         NSLog(@"server response: %@", [response bodyAsString]);
+    
+    if ([request isPOST]) {  
+        NSLog(@"server response: %@", [response bodyAsString]);
         // Handling POST /other.json          
         if ([response isJSON]) {  
             NSLog(@"Got a JSON response back from our POST!:");
@@ -128,21 +126,54 @@
             [userDefaults setObject:userName forKey:@"name"];
             [userDefaults setObject:userID forKey:@"ID"];
             
+            //login or create new db object if required
+            [self modelLoginWithEmail:self.emailAddressField.text andName:userName];
             
-            //load the users data model
-            AppDelegate *sharedData = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-            [sharedData loadModelFromDisk];
-            
+            //transition to main menu
             [self performSegueWithIdentifier:@"toMainMenu" sender:self];
         }  
         
-    } else if ([request isDELETE]) {  
-        
-        // Handling DELETE /missing_resource.txt  
-        if ([response isNotFound]) {  
-            NSLog(@"The resource path '%@' was not found.", [request resourcePath]);  
-        }  
-    }  
+    } 
 }  
+
+#pragma mark - Database setup/login
+
+- (void)modelLoginWithEmail:(NSString *)email andName:(NSString *)name {
+    NSError *error = nil;
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"User"];
+    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"email MATCHES %@", email]];
+    [fetchRequest setFetchLimit:1];
+    
+    NSInteger count = [self.managedObjectContext countForFetchRequest:fetchRequest error:&error];
+    
+    if (!error){
+        if (count > 0){
+            //it was found
+            //NSLog(@"LOGIN SUCCESS %d", count);
+            //set logged in user to found user
+            NSArray *userArray = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+            User *user = [userArray objectAtIndex:0];
+            sharedData.loggedInUser = user;
+            //NSLog(@"this user is called %@", sharedData.loggedInUser.name);
+            //NSLog(@"this user is called %@", user.name);
+            
+        }
+        //if user not in the DB, add the user
+        else {
+            //NSLog(@"It was NOT %d", count);
+            User *user = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:self.managedObjectContext];
+            user.name = name;
+            user.email = self.emailAddressField.text;
+            user.password = self.passwordField.text;
+            sharedData.loggedInUser = user;
+            //NSLog(@"this user is called %@", sharedData.loggedInUser.name);
+            //NSLog(@"this user is called %@", user.name);
+            [self.managedObjectContext save:nil];
+        }
+    }    
+    
+}
+
 
 @end

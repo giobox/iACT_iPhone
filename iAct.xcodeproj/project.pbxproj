@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D173AB615C2B1430076B0B1 /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D173AB515C2B1430076B0B1 /* CoreDataTableViewController.m */; };
+		9D201B5B15C15C6300A038E4 /* thoughtModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9D201B5915C15C6300A038E4 /* thoughtModel.xcdatamodeld */; };
 		9D231F6515A20E11005C79A3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D231F6415A20E11005C79A3 /* CoreLocation.framework */; };
 		9D231F7515A216AD005C79A3 /* ThoughtDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D231F7415A216AD005C79A3 /* ThoughtDisplayViewController.m */; };
 		9D231F8115A25609005C79A3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D231F8015A25609005C79A3 /* MapKit.framework */; };
@@ -20,19 +22,19 @@
 		9D39725215A1C4C2006C472C /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D39725015A1C4C2006C472C /* MainStoryboard.storyboard */; };
 		9D39725515A1C4C2006C472C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D39725415A1C4C2006C472C /* ViewController.m */; };
 		9D39725D15A1CB4D006C472C /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D39725C15A1CB4D006C472C /* MainMenuViewController.m */; };
-		9D39726C15A1D56D006C472C /* iACTNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D39726B15A1D56C006C472C /* iACTNavigationController.m */; };
 		9D39727115A1D847006C472C /* ACTInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D39727015A1D847006C472C /* ACTInformationViewController.m */; };
 		9D39727515A1D9DA006C472C /* AboutACTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D39727415A1D9DA006C472C /* AboutACTViewController.m */; };
 		9D39727915A1DCC5006C472C /* black-material.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D39727815A1DCC5006C472C /* black-material.jpg */; };
 		9D39727B15A1DE01006C472C /* paper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D39727A15A1DE01006C472C /* paper.jpg */; };
 		9D39728015A1E668006C472C /* ThoughtRecorderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D39727F15A1E668006C472C /* ThoughtRecorderViewController.m */; };
-		9D39728C15A1EF43006C472C /* UserDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D39728B15A1EF43006C472C /* UserDataModel.m */; };
 		9D39728F15A1F1F3006C472C /* ThoughtHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D39728E15A1F1F3006C472C /* ThoughtHistoryViewController.m */; };
 		9D39729315A1FF7C006C472C /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D39729215A1FF7B006C472C /* icon.png */; };
 		9D39729A15A1FFAD006C472C /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D39729915A1FFAD006C472C /* Default.png */; };
 		9D39729C15A1FFB9006C472C /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D39729B15A1FFB8006C472C /* Default@2x.png */; };
 		9D3972A615A20101006C472C /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D3972A515A20101006C472C /* Icon@2x.png */; };
-		9D3972AD15A2091D006C472C /* ThoughtInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D3972AC15A2091D006C472C /* ThoughtInstance.m */; };
+		9D81033115C28EAC00AC36AD /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D81033015C28EAC00AC36AD /* User.m */; };
+		9D81033415C28EAC00AC36AD /* ThoughtOccurance.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D81033315C28EAC00AC36AD /* ThoughtOccurance.m */; };
+		9D81033715C28EAC00AC36AD /* Thought.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D81033615C28EAC00AC36AD /* Thought.m */; };
 		9DA9C5AE15BFFCC60036C59C /* blueButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DA9C5AA15BFFCC60036C59C /* blueButton.png */; };
 		9DA9C5AF15BFFCC60036C59C /* blueButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DA9C5AB15BFFCC60036C59C /* blueButton@2x.png */; };
 		9DA9C5B015BFFCC60036C59C /* blueButtonHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DA9C5AC15BFFCC60036C59C /* blueButtonHighlight.png */; };
@@ -53,6 +55,9 @@
 		9DA9C5D315C010FB0036C59C /* orangeButtonHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DA9C5CF15C010FB0036C59C /* orangeButtonHighlight.png */; };
 		9DA9C5D415C010FB0036C59C /* orangeButtonHighlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DA9C5D015C010FB0036C59C /* orangeButtonHighlight@2x.png */; };
 		9DA9C5D915C0178C0036C59C /* RecordAgainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA9C5D815C0178C0036C59C /* RecordAgainViewController.m */; };
+		9DC6FA0F15C5624200AE2AE1 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DC6FA0B15C5624200AE2AE1 /* arrow.png */; };
+		9DC6FA1015C5624200AE2AE1 /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DC6FA0C15C5624200AE2AE1 /* arrow@2x.png */; };
+		9DC6FA1115C5624200AE2AE1 /* PullToRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DC6FA0E15C5624200AE2AE1 /* PullToRefreshView.m */; };
 		9DDA5F0815A31A0200D775DF /* ThoughtDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DDA5F0715A31A0200D775DF /* ThoughtDetailViewController.m */; };
 		9DE99EF315BED11D003F727F /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE99EE715BED002003F727F /* libRestKit.a */; };
 		9DE99EF515BED138003F727F /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE99EF415BED138003F727F /* CFNetwork.framework */; };
@@ -110,6 +115,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9D173AB415C2B1430076B0B1 /* CoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataTableViewController.h; sourceTree = "<group>"; };
+		9D173AB515C2B1430076B0B1 /* CoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTableViewController.m; sourceTree = "<group>"; };
+		9D201B5A15C15C6300A038E4 /* thoughtModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = thoughtModel.xcdatamodel; sourceTree = "<group>"; };
 		9D231F6415A20E11005C79A3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		9D231F7415A216AD005C79A3 /* ThoughtDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThoughtDisplayViewController.m; path = ../ThoughtDisplayViewController.m; sourceTree = "<group>"; };
 		9D231F7615A21889005C79A3 /* ThoughtDisplayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ThoughtDisplayViewController.h; path = ../ThoughtDisplayViewController.h; sourceTree = "<group>"; };
@@ -130,8 +138,6 @@
 		9D39725415A1C4C2006C472C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		9D39725B15A1CB4D006C472C /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
 		9D39725C15A1CB4D006C472C /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewController.m; sourceTree = "<group>"; };
-		9D39726A15A1D56C006C472C /* iACTNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iACTNavigationController.h; sourceTree = "<group>"; };
-		9D39726B15A1D56C006C472C /* iACTNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iACTNavigationController.m; sourceTree = "<group>"; };
 		9D39726F15A1D847006C472C /* ACTInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACTInformationViewController.h; sourceTree = "<group>"; };
 		9D39727015A1D847006C472C /* ACTInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACTInformationViewController.m; sourceTree = "<group>"; };
 		9D39727315A1D9DA006C472C /* AboutACTViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutACTViewController.h; sourceTree = "<group>"; };
@@ -140,16 +146,18 @@
 		9D39727A15A1DE01006C472C /* paper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = paper.jpg; sourceTree = "<group>"; };
 		9D39727E15A1E668006C472C /* ThoughtRecorderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThoughtRecorderViewController.h; sourceTree = "<group>"; };
 		9D39727F15A1E668006C472C /* ThoughtRecorderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThoughtRecorderViewController.m; sourceTree = "<group>"; };
-		9D39728A15A1EF43006C472C /* UserDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDataModel.h; sourceTree = "<group>"; };
-		9D39728B15A1EF43006C472C /* UserDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDataModel.m; sourceTree = "<group>"; };
 		9D39728D15A1F1F3006C472C /* ThoughtHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThoughtHistoryViewController.h; sourceTree = "<group>"; };
 		9D39728E15A1F1F3006C472C /* ThoughtHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThoughtHistoryViewController.m; sourceTree = "<group>"; };
 		9D39729215A1FF7B006C472C /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		9D39729915A1FFAD006C472C /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
 		9D39729B15A1FFB8006C472C /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 		9D3972A515A20101006C472C /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../Icon@2x.png"; sourceTree = "<group>"; };
-		9D3972AB15A2091C006C472C /* ThoughtInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThoughtInstance.h; sourceTree = "<group>"; };
-		9D3972AC15A2091D006C472C /* ThoughtInstance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThoughtInstance.m; sourceTree = "<group>"; };
+		9D81032F15C28EAC00AC36AD /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		9D81033015C28EAC00AC36AD /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		9D81033215C28EAC00AC36AD /* ThoughtOccurance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThoughtOccurance.h; sourceTree = "<group>"; };
+		9D81033315C28EAC00AC36AD /* ThoughtOccurance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThoughtOccurance.m; sourceTree = "<group>"; };
+		9D81033515C28EAC00AC36AD /* Thought.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Thought.h; sourceTree = "<group>"; };
+		9D81033615C28EAC00AC36AD /* Thought.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Thought.m; sourceTree = "<group>"; };
 		9DA9C5AA15BFFCC60036C59C /* blueButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueButton.png; sourceTree = "<group>"; };
 		9DA9C5AB15BFFCC60036C59C /* blueButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blueButton@2x.png"; sourceTree = "<group>"; };
 		9DA9C5AC15BFFCC60036C59C /* blueButtonHighlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueButtonHighlight.png; sourceTree = "<group>"; };
@@ -176,6 +184,10 @@
 		9DA9C5D015C010FB0036C59C /* orangeButtonHighlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "orangeButtonHighlight@2x.png"; sourceTree = "<group>"; };
 		9DA9C5D715C0178C0036C59C /* RecordAgainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordAgainViewController.h; sourceTree = "<group>"; };
 		9DA9C5D815C0178C0036C59C /* RecordAgainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordAgainViewController.m; sourceTree = "<group>"; };
+		9DC6FA0B15C5624200AE2AE1 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
+		9DC6FA0C15C5624200AE2AE1 /* arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow@2x.png"; sourceTree = "<group>"; };
+		9DC6FA0D15C5624200AE2AE1 /* PullToRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullToRefreshView.h; sourceTree = "<group>"; };
+		9DC6FA0E15C5624200AE2AE1 /* PullToRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullToRefreshView.m; sourceTree = "<group>"; };
 		9DDA5F0615A31A0200D775DF /* ThoughtDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThoughtDetailViewController.h; sourceTree = "<group>"; };
 		9DDA5F0715A31A0200D775DF /* ThoughtDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThoughtDetailViewController.m; sourceTree = "<group>"; };
 		9DE99EDB15BED002003F727F /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
@@ -186,8 +198,6 @@
 		9DE99EFC15BED156003F727F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		9DE99EFE15BED15D003F727F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		9DE99F0015BED17F003F727F /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
-		9DE99F0B15BF0C76003F727F /* IactUser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IactUser.h; path = ../RestKit/Tests/Models/IactUser.h; sourceTree = "<group>"; };
-		9DE99F0C15BF0C76003F727F /* IactUser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = IactUser.m; path = ../RestKit/Tests/Models/IactUser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +225,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9D201B6515C1641700A038E4 /* coreData Model */ = {
+			isa = PBXGroup;
+			children = (
+				9D173AB415C2B1430076B0B1 /* CoreDataTableViewController.h */,
+				9D173AB515C2B1430076B0B1 /* CoreDataTableViewController.m */,
+				9D201B5915C15C6300A038E4 /* thoughtModel.xcdatamodeld */,
+				9D81033515C28EAC00AC36AD /* Thought.h */,
+				9D81033615C28EAC00AC36AD /* Thought.m */,
+				9D81033215C28EAC00AC36AD /* ThoughtOccurance.h */,
+				9D81033315C28EAC00AC36AD /* ThoughtOccurance.m */,
+				9D81032F15C28EAC00AC36AD /* User.h */,
+				9D81033015C28EAC00AC36AD /* User.m */,
+			);
+			name = "coreData Model";
+			path = ..;
+			sourceTree = "<group>";
+		};
 		9D231F6F15A21122005C79A3 /* thoughtDisplay */ = {
 			isa = PBXGroup;
 			children = (
@@ -222,21 +249,6 @@
 				9D231F7615A21889005C79A3 /* ThoughtDisplayViewController.h */,
 			);
 			name = thoughtDisplay;
-			sourceTree = "<group>";
-		};
-		9D231F7B15A24586005C79A3 /* DataModel */ = {
-			isa = PBXGroup;
-			children = (
-				9DE99F0B15BF0C76003F727F /* IactUser.h */,
-				9DE99F0C15BF0C76003F727F /* IactUser.m */,
-				9D39726A15A1D56C006C472C /* iACTNavigationController.h */,
-				9D39726B15A1D56C006C472C /* iACTNavigationController.m */,
-				9D39728A15A1EF43006C472C /* UserDataModel.h */,
-				9D39728B15A1EF43006C472C /* UserDataModel.m */,
-				9D3972AB15A2091C006C472C /* ThoughtInstance.h */,
-				9D3972AC15A2091D006C472C /* ThoughtInstance.m */,
-			);
-			name = DataModel;
 			sourceTree = "<group>";
 		};
 		9D39722F15A1C4C2006C472C = {
@@ -289,9 +301,7 @@
 				9D39727215A1D9BF006C472C /* about iACT */,
 				9D39726E15A1D826006C472C /* ACT Information */,
 				9D39726D15A1D813006C472C /* LoginWindow */,
-				9D39724D15A1C4C2006C472C /* AppDelegate.h */,
-				9D39724E15A1C4C2006C472C /* AppDelegate.m */,
-				9D231F7B15A24586005C79A3 /* DataModel */,
+				9D201B6515C1641700A038E4 /* coreData Model */,
 				9D39724515A1C4C2006C472C /* Supporting Files */,
 			);
 			path = iAct;
@@ -300,6 +310,8 @@
 		9D39724515A1C4C2006C472C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9D39724D15A1C4C2006C472C /* AppDelegate.h */,
+				9D39724E15A1C4C2006C472C /* AppDelegate.m */,
 				9D39724615A1C4C2006C472C /* iAct-Info.plist */,
 				9D39724715A1C4C2006C472C /* InfoPlist.strings */,
 				9D39724A15A1C4C2006C472C /* main.m */,
@@ -379,6 +391,10 @@
 				9DA9C5D515C017550036C59C /* Thought Detail */,
 				9D39728D15A1F1F3006C472C /* ThoughtHistoryViewController.h */,
 				9D39728E15A1F1F3006C472C /* ThoughtHistoryViewController.m */,
+				9DC6FA0B15C5624200AE2AE1 /* arrow.png */,
+				9DC6FA0C15C5624200AE2AE1 /* arrow@2x.png */,
+				9DC6FA0D15C5624200AE2AE1 /* PullToRefreshView.h */,
+				9DC6FA0E15C5624200AE2AE1 /* PullToRefreshView.m */,
 			);
 			name = "Thought History";
 			sourceTree = "<group>";
@@ -578,6 +594,8 @@
 				9DA9C5D215C010FB0036C59C /* orangeButton@2x.png in Resources */,
 				9DA9C5D315C010FB0036C59C /* orangeButtonHighlight.png in Resources */,
 				9DA9C5D415C010FB0036C59C /* orangeButtonHighlight@2x.png in Resources */,
+				9DC6FA0F15C5624200AE2AE1 /* arrow.png in Resources */,
+				9DC6FA1015C5624200AE2AE1 /* arrow@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -592,16 +610,19 @@
 				9D39724F15A1C4C2006C472C /* AppDelegate.m in Sources */,
 				9D39725515A1C4C2006C472C /* ViewController.m in Sources */,
 				9D39725D15A1CB4D006C472C /* MainMenuViewController.m in Sources */,
-				9D39726C15A1D56D006C472C /* iACTNavigationController.m in Sources */,
 				9D39727115A1D847006C472C /* ACTInformationViewController.m in Sources */,
 				9D39727515A1D9DA006C472C /* AboutACTViewController.m in Sources */,
 				9D39728015A1E668006C472C /* ThoughtRecorderViewController.m in Sources */,
-				9D39728C15A1EF43006C472C /* UserDataModel.m in Sources */,
 				9D39728F15A1F1F3006C472C /* ThoughtHistoryViewController.m in Sources */,
-				9D3972AD15A2091D006C472C /* ThoughtInstance.m in Sources */,
 				9D231F7515A216AD005C79A3 /* ThoughtDisplayViewController.m in Sources */,
 				9DDA5F0815A31A0200D775DF /* ThoughtDetailViewController.m in Sources */,
 				9DA9C5D915C0178C0036C59C /* RecordAgainViewController.m in Sources */,
+				9D201B5B15C15C6300A038E4 /* thoughtModel.xcdatamodeld in Sources */,
+				9D81033115C28EAC00AC36AD /* User.m in Sources */,
+				9D81033415C28EAC00AC36AD /* ThoughtOccurance.m in Sources */,
+				9D81033715C28EAC00AC36AD /* Thought.m in Sources */,
+				9D173AB615C2B1430076B0B1 /* CoreDataTableViewController.m in Sources */,
+				9DC6FA1115C5624200AE2AE1 /* PullToRefreshView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -738,6 +759,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9D201B5915C15C6300A038E4 /* thoughtModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9D201B5A15C15C6300A038E4 /* thoughtModel.xcdatamodel */,
+			);
+			currentVersion = 9D201B5A15C15C6300A038E4 /* thoughtModel.xcdatamodel */;
+			path = thoughtModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 9D39723115A1C4C2006C472C /* Project object */;
 }
