@@ -11,9 +11,10 @@
 #import "ThoughtDetailViewController.h"
 #import "Thought.h"
 #import "PullToRefreshView.h"
+#import <RestKit/CoreData.h>
 
 
-@interface ThoughtHistoryViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, PullToRefreshViewDelegate>
+@interface ThoughtHistoryViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, PullToRefreshViewDelegate, RKRequestDelegate>
 
 - (IBAction)editThoughtList:(UIBarButtonItem *)sender;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *editButton;

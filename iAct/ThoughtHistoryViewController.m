@@ -218,6 +218,11 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         //get the thought and remove it from the model
         Thought *thoughtToDelete = [thoughtArray objectAtIndex:indexPath.row];
+        
+        NSDictionary* params = [NSDictionary dictionaryWithObjectsAndKeys: @"1", @"id", thoughtToDelete.content ,@"content" , nil];
+        [[RKClient sharedClient] post:@"/deletethought" params:params delegate:self];
+        
+        
         [self.managedObjectContext deleteObject:thoughtToDelete];
         [self.managedObjectContext save:nil];
         
@@ -240,12 +245,90 @@
 -(void) getNewThoughtData
 {
     
-    [self.tableView reloadData];
-    [pull finishedLoading];
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *userID = [userDefaults objectForKey:@"ID"];
+    
+    NSDictionary* params = [NSDictionary dictionaryWithObjectsAndKeys:userID ,@"id" , nil];
+    //POST login deets
+    [[RKClient sharedClient] post:@"/getthoughts" params:params delegate:self];
+    
+    //move to methods for restkit!
+    //[self.tableView reloadData];
+    
+   
 }
 
 - (void)dealloc {
     [pull removeFromSuperview];
 }
+
+//this method listens for the server response - handled because we set the delegate to self
+- (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    
+    if ([response statusCode]==403) {
+        NSLog(@"log in failed");
+        //Display login failure dialog
+        [userDefaults setBool:NO forKey:@"loginStatus"];
+        UIAlertView *incorrectPasswordDialog;
+        incorrectPasswordDialog = [[UIAlertView alloc] initWithTitle:@"Incorrect Details"
+                                                             message:@"You entered your email address or password incorrectly, please try again"
+                                                            delegate:nil
+                                                   cancelButtonTitle:@"Ok"
+                                                   otherButtonTitles: nil];
+        [incorrectPasswordDialog show];
+    }
+    
+    
+    if ([request isPOST]) {
+        NSLog(@"server response: %@", [response bodyAsString]);
+        // Handling POST /other.json
+        if ([response isJSON]) {
+            NSLog(@"Got a JSON response back from our thought HISTORY POST!:");
+            NSError *error;
+            //get raw json
+            NSString *jsonString = [response bodyAsString];
+            //parse it
+            NSData *jsonData = [jsonString dataUsingEncoding:NSASCIIStringEncoding];
+            NSArray *jsonDict = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                                     options:kNilOptions
+                                                                       error:&error];
+            
+            
+           //itterate through the new thoughts and add them!
+            for(int x=0;x<jsonDict.count;x++) {
+                NSLog(@"The thought is %@", [[jsonDict objectAtIndex:x] objectForKey:@"content"]);
+                NSString *content = [[jsonDict objectAtIndex:x] objectForKey:@"content"];
+                Thought *newthought = [NSEntityDescription insertNewObjectForEntityForName:@"Thought" inManagedObjectContext:self.managedObjectContext];
+                
+                newthought.content=content;
+                newthought.hasUser=sharedData.loggedInUser;
+                [sharedData.loggedInUser addHasThoughtObject:newthought];
+            }
+            [self.managedObjectContext save:nil];
+            [self getThoughtData];
+            [self.tableView reloadData];
+            [pull finishedLoading];
+
+            
+            
+            
+            //id jsonObjects = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
+             //NSArray *json = [NSJSONSerialization JSONObjectWithData:jsonData options:kNilOptions error:&error];
+           // NSLog(@"%d",[json count]);
+           // NSArray *keys = [json allKeys];
+            
+            // values in foreach loop
+            //for (NSString *key in json) {
+              //  NSLog(@"%@ is %@",key, [jsonObjects objectForKey:key]);
+            //}
+            //for (NSString *t in thoughtContent) {
+              //   NSLog(@"%@", thoughtContent);
+            //}
+        }
+        
+    }
+}
+
 
 @end

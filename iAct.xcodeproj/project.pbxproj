@@ -32,6 +32,7 @@
 		9D39729A15A1FFAD006C472C /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D39729915A1FFAD006C472C /* Default.png */; };
 		9D39729C15A1FFB9006C472C /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D39729B15A1FFB8006C472C /* Default@2x.png */; };
 		9D3972A615A20101006C472C /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D3972A515A20101006C472C /* Icon@2x.png */; };
+		9D64404015C6EB6D002D0D12 /* RKThought.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D64403F15C6EB6D002D0D12 /* RKThought.m */; };
 		9D81033115C28EAC00AC36AD /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D81033015C28EAC00AC36AD /* User.m */; };
 		9D81033415C28EAC00AC36AD /* ThoughtOccurance.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D81033315C28EAC00AC36AD /* ThoughtOccurance.m */; };
 		9D81033715C28EAC00AC36AD /* Thought.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D81033615C28EAC00AC36AD /* Thought.m */; };
@@ -152,6 +153,8 @@
 		9D39729915A1FFAD006C472C /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
 		9D39729B15A1FFB8006C472C /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 		9D3972A515A20101006C472C /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../Icon@2x.png"; sourceTree = "<group>"; };
+		9D64403E15C6EB6D002D0D12 /* RKThought.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKThought.h; sourceTree = "<group>"; };
+		9D64403F15C6EB6D002D0D12 /* RKThought.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKThought.m; sourceTree = "<group>"; };
 		9D81032F15C28EAC00AC36AD /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		9D81033015C28EAC00AC36AD /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		9D81033215C28EAC00AC36AD /* ThoughtOccurance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThoughtOccurance.h; sourceTree = "<group>"; };
@@ -237,6 +240,8 @@
 				9D81033315C28EAC00AC36AD /* ThoughtOccurance.m */,
 				9D81032F15C28EAC00AC36AD /* User.h */,
 				9D81033015C28EAC00AC36AD /* User.m */,
+				9D64403E15C6EB6D002D0D12 /* RKThought.h */,
+				9D64403F15C6EB6D002D0D12 /* RKThought.m */,
 			);
 			name = "coreData Model";
 			path = ..;
@@ -623,6 +628,7 @@
 				9D81033715C28EAC00AC36AD /* Thought.m in Sources */,
 				9D173AB615C2B1430076B0B1 /* CoreDataTableViewController.m in Sources */,
 				9DC6FA1115C5624200AE2AE1 /* PullToRefreshView.m in Sources */,
+				9D64404015C6EB6D002D0D12 /* RKThought.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
