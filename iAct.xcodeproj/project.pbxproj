@@ -22,7 +22,6 @@
 		9D39725215A1C4C2006C472C /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D39725015A1C4C2006C472C /* MainStoryboard.storyboard */; };
 		9D39725515A1C4C2006C472C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D39725415A1C4C2006C472C /* ViewController.m */; };
 		9D39725D15A1CB4D006C472C /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D39725C15A1CB4D006C472C /* MainMenuViewController.m */; };
-		9D39727115A1D847006C472C /* ACTInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D39727015A1D847006C472C /* ACTInformationViewController.m */; };
 		9D39727515A1D9DA006C472C /* AboutACTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D39727415A1D9DA006C472C /* AboutACTViewController.m */; };
 		9D39727915A1DCC5006C472C /* black-material.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D39727815A1DCC5006C472C /* black-material.jpg */; };
 		9D39727B15A1DE01006C472C /* paper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D39727A15A1DE01006C472C /* paper.jpg */; };
@@ -156,8 +155,6 @@
 		9D39725415A1C4C2006C472C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		9D39725B15A1CB4D006C472C /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
 		9D39725C15A1CB4D006C472C /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewController.m; sourceTree = "<group>"; };
-		9D39726F15A1D847006C472C /* ACTInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACTInformationViewController.h; sourceTree = "<group>"; };
-		9D39727015A1D847006C472C /* ACTInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACTInformationViewController.m; sourceTree = "<group>"; };
 		9D39727315A1D9DA006C472C /* AboutACTViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutACTViewController.h; sourceTree = "<group>"; };
 		9D39727415A1D9DA006C472C /* AboutACTViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutACTViewController.m; sourceTree = "<group>"; };
 		9D39727815A1DCC5006C472C /* black-material.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "black-material.jpg"; sourceTree = "<group>"; };
@@ -340,7 +337,6 @@
 				9D39727D15A1E647006C472C /* Record Thought */,
 				9D39727C15A1DF6A006C472C /* Main Menu */,
 				9D39727215A1D9BF006C472C /* about iACT */,
-				9D39726E15A1D826006C472C /* ACT Information */,
 				9D39726D15A1D813006C472C /* LoginWindow */,
 				9D201B6515C1641700A038E4 /* coreData Model */,
 				9D39724515A1C4C2006C472C /* Supporting Files */,
@@ -368,15 +364,6 @@
 				9D39725415A1C4C2006C472C /* ViewController.m */,
 			);
 			name = LoginWindow;
-			sourceTree = "<group>";
-		};
-		9D39726E15A1D826006C472C /* ACT Information */ = {
-			isa = PBXGroup;
-			children = (
-				9D39726F15A1D847006C472C /* ACTInformationViewController.h */,
-				9D39727015A1D847006C472C /* ACTInformationViewController.m */,
-			);
-			name = "ACT Information";
 			sourceTree = "<group>";
 		};
 		9D39727215A1D9BF006C472C /* about iACT */ = {
@@ -710,7 +697,6 @@
 				9D39724F15A1C4C2006C472C /* AppDelegate.m in Sources */,
 				9D39725515A1C4C2006C472C /* ViewController.m in Sources */,
 				9D39725D15A1CB4D006C472C /* MainMenuViewController.m in Sources */,
-				9D39727115A1D847006C472C /* ACTInformationViewController.m in Sources */,
 				9D39727515A1D9DA006C472C /* AboutACTViewController.m in Sources */,
 				9D39728015A1E668006C472C /* ThoughtRecorderViewController.m in Sources */,
 				9D39728F15A1F1F3006C472C /* ThoughtHistoryViewController.m in Sources */,

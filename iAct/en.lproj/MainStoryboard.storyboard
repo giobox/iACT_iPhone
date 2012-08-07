@@ -760,13 +760,50 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="iACT Version 0.5" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="10" id="DDN-Jr-NhQ">
+                            <imageView userInteractionEnabled="NO" contentMode="center" image="black-material.jpg" id="Wsx-hd-FiP">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" image="YES" notEnabled="YES"/>
+                                </accessibility>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="iACT Version 1.0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="10" id="DDN-Jr-NhQ">
                                 <rect key="frame" x="81" y="45" width="159" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" minimumFontSize="10" id="et3-e6-Gy2">
+                                <rect key="frame" x="88" y="96" width="145" height="121"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" link="YES" staticText="YES"/>
+                                </accessibility>
+                                <string key="text">MSc SD Project
+
+created by
+Giovanni Coia
+2012</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="IQG-kM-fdG" userLabel="dismiss keyboard button">
+                                <rect key="frame" x="-63" y="-1" width="320" height="455"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="hideKeyboard:" destination="PMa-QI-68O" eventType="touchUpInside" id="VYY-UN-S3O"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="PGU-4j-qAp">
                                 <rect key="frame" x="20" y="359" width="280" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -782,38 +819,11 @@
                                     <action selector="sendFeedback:" destination="XV3-Ys-cI6" eventType="touchUpInside" id="jDt-rG-byy"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tTN-Fa-g9R">
-                                <rect key="frame" x="20" y="314" width="280" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Reset iACT">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="resetIACT:" destination="XV3-Ys-cI6" eventType="touchUpInside" id="Mmn-xk-C1g"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="www.iactonline.net" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="et3-e6-Gy2">
-                                <rect key="frame" x="88" y="83" width="145" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" none="YES" link="YES" staticText="YES"/>
-                                </accessibility>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="About iACT" id="mrf-WB-zFl"/>
                     <connections>
-                        <outlet property="resetIACTButton" destination="tTN-Fa-g9R" id="l3C-JY-ncv"/>
                         <outlet property="sendFeedbackButton" destination="PGU-4j-qAp" id="lsM-r3-UrV"/>
                     </connections>
                 </viewController>
@@ -970,9 +980,10 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" id="P0Q-Io-EJC">
                                 <rect key="frame" x="20" y="20" width="280" height="347"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <mutableString key="text">ACT aims to help people maintain non-judgemental awareness of psychological and environmental events as they occur. 
+                                <string key="text">ACT aims to help people maintain non-judgemental awareness of psychological and environmental events as they occur. 
 
-The aim of doing so is to enhance the person’s direct experience of their world and help them to be more responsive to their environment. Mindfulness breathing and body scan techniques will be used to increase participants present moment awareness. These techniques will help us to become more attuned to what is happening with our body, our thinking and our emotions. The non-judgemental aspect of this awareness is important. We are aiming to observe rather than judge.</mutableString>
+The aim of doing so is to enhance the person’s direct experience of their world and help them to be more responsive to their environment. Mindfulness breathing and body scan techniques will be used to increase participants present moment awareness. These techniques will help us to become more attuned to what is happening with our body, our thinking and our emotions. The non-judgemental aspect of this awareness is important. We are aiming to observe rather than judge.
+</string>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1004,7 +1015,8 @@ The aim of doing so is to enhance the person’s direct experience of their worl
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" id="Cmn-FY-Smj">
                                 <rect key="frame" x="20" y="20" width="280" height="327"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <mutableString key="text">Values are chosen personal life directions. Values help to dignify painful experiences.  Unlike goals they are not something that is achieved. Instead, values are an orientation that we adopt in living our lives. The analogy of a compass can be helpful for understanding values; when travelling east you may know that you are travelling in the right direction but you will never reach a destination ‘east’.  There may be certain destinations that you want to pass through on this journey – these may be likened to goals that our values help to generate. In considering our values we are encouraged to step back from the problems that we encounter in everyday life and to look at what we want our lives to stand for. The process of value clarification may involve people distinguishing between what they personally value from what they feel they should value to please other people. Values are the lynch-pin of ACT; values are proposed to empower us all to live meaningful lives. </mutableString>
+                                <string key="text">Values are chosen personal life directions. Values help to dignify painful experiences.  Unlike goals they are not something that is achieved. Instead, values are an orientation that we adopt in living our lives. The analogy of a compass can be helpful for understanding values; when travelling east you may know that you are travelling in the right direction but you will never reach a destination ‘east’.  There may be certain destinations that you want to pass through on this journey – these may be likened to goals that our values help to generate. In considering our values we are encouraged to step back from the problems that we encounter in everyday life and to look at what we want our lives to stand for. The process of value clarification may involve people distinguishing between what they personally value from what they feel they should value to please other people. Values are the lynch-pin of ACT; values are proposed to empower us all to live meaningful lives. 
+</string>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1036,8 +1048,12 @@ The aim of doing so is to enhance the person’s direct experience of their worl
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" id="91T-2v-HJv">
                                 <rect key="frame" x="20" y="20" width="280" height="327"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <mutableString key="text">Acceptance and Commitment Therapy (ACT; Hayes et al, 1999) is a type of psychological therapy that aims to help people:Develop a sense of “mindfulness.” Mindfulness allows you to be fully aware of your here-and-now experience, with an attitude of openness and curiosity. It is hoped that this will help reduce the impact of painful thoughts and feelings.
-Take effective action that is conscious and deliberate, rather than impulsive. It is hoped that this will allow people to be motivated, guided, and inspired by the things that they value in life.</mutableString>
+                                <string key="text">Acceptance and Commitment Therapy (ACT; Hayes et al, 1999) is a type of psychological therapy that aims to help people:
+
+Develop a sense of “mindfulness.” Mindfulness allows you to be fully aware of your here-and-now experience, with an attitude of openness and curiosity. It is hoped that this will help reduce the impact of painful thoughts and feelings.
+
+Take effective action that is conscious and deliberate, rather than impulsive. It is hoped that this will allow people to be motivated, guided, and inspired by the things that they value in life.
+</string>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1056,7 +1072,7 @@ The aim of doing so is to enhance the person’s direct experience of their worl
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sXG-Km-XvT" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tabBarController definesPresentationContext="YES" id="Goa-N2-9hf" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="ACT Information" id="snq-Zg-v7N"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Th2-pM-FpS">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -1106,7 +1122,7 @@ The aim of doing so is to enhance the person’s direct experience of their worl
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" id="iUV-By-oS7">
                                 <rect key="frame" x="20" y="20" width="280" height="347"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <mutableString key="text">Committed actions are specific behavioural steps that a person takes in order to move towards their values and living a meaningful life.  It is important to make a distinction between the process of committing to take action, and the outcome of these actions.  People will be helped to recognise that whereas the decision to commit to a particular action might be in their control, the outcome of these actions may not be. It is hoped that a focus on committed action will facilitate a shift in perspective where ‘success’ is adjudged on the decision to embark on value consistent behavioural changes rather than achieving a particular goal.</mutableString>
+                                <string key="text">Committed actions are specific behavioural steps that a person takes in order to move towards their values and living a meaningful life.  It is important to make a distinction between the process of committing to take action, and the outcome of these actions.  People will be helped to recognise that whereas the decision to commit to a particular action might be in their control, the outcome of these actions may not be. It is hoped that a focus on committed action will facilitate a shift in perspective where ‘success’ is adjudged on the decision to embark on value consistent behavioural changes rather than achieving a particular goal.</string>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1138,7 +1154,7 @@ The aim of doing so is to enhance the person’s direct experience of their worl
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" id="pq5-QV-5ZQ">
                                 <rect key="frame" x="20" y="20" width="280" height="327"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <mutableString key="text">We can all experience difficult thoughts. Traditionally, psychological therapies have tried to deal with excessive levels of difficult thoughts by changing the content of the thoughts. ACT tries something different. Using learning theory, it tries to change the context in which we experience thoughts. This can change the impact of difficult thoughts without immersing the person in what can become a struggle to change the form of the thought. Defusion techniques aim to introduce some space between the person and their experience, so that the person relates less to the literal content of the thought.  This helps people understand that thoughts are not facts. Whether or not this particular thought or other private experience continues to happen is not a matter with which ACT concerns itself, it is the functional impact of the private events that we are working with. Defusion techniques may include: singing aloud upsetting thoughts in an operatic voice, imagining your thoughts projected on a screen some distance away from where you are sat, and repeating an emotionally salient word over and over again until only the sound of the word remains. Metaphors are quite a powerful way of helping to promote defusion.</mutableString>
+                                <string key="text">We can all experience difficult thoughts. Traditionally, psychological therapies have tried to deal with excessive levels of difficult thoughts by changing the content of the thoughts. ACT tries something different. Using learning theory, it tries to change the context in which we experience thoughts. This can change the impact of difficult thoughts without immersing the person in what can become a struggle to change the form of the thought. Defusion techniques aim to introduce some space between the person and their experience, so that the person relates less to the literal content of the thought.  This helps people understand that thoughts are not facts. Whether or not this particular thought or other private experience continues to happen is not a matter with which ACT concerns itself, it is the functional impact of the private events that we are working with. Defusion techniques may include: singing aloud upsetting thoughts in an operatic voice, imagining your thoughts projected on a screen some distance away from where you are sat, and repeating an emotionally salient word over and over again until only the sound of the word remains. Metaphors are quite a powerful way of helping to promote defusion.</string>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1170,7 +1186,7 @@ The aim of doing so is to enhance the person’s direct experience of their worl
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" id="Zib-7O-tSg">
                                 <rect key="frame" x="20" y="20" width="280" height="327"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <mutableString key="text">This has been defined as a willingness to have an experience and live one’s life around it. This is therefore distinct from the notion of ‘giving in’.  We exist in a society that is constantly trying to solve problems. This has helped bring about huge change. However, sometimes we can find that trying to use problem solving strategies to deal with private events (thought, emotion, sensation, memory etc) don’t work too well. In fact, sometimes this only serves to focus our attention on these thoughts and emotions all the more. Perhaps, as an alternative, we should try to see if we can be with these experiences. In this way, acceptance is an alternative to the on-going struggle that can stem from trying to avoid difficult thoughts and emotions. The idea of ‘willingness’ is particularly important.  Would we be willing to experience difficulties if it meant that we were able to work toward something that we value? An example might be accepting that you might experience uncomfortable feelings when speaking in front of people if you were trying to promote a particular cause.  </mutableString>
+                                <string key="text">This has been defined as a willingness to have an experience and live one’s life around it. This is therefore distinct from the notion of ‘giving in’.  We exist in a society that is constantly trying to solve problems. This has helped bring about huge change. However, sometimes we can find that trying to use problem solving strategies to deal with private events (thought, emotion, sensation, memory etc) don’t work too well. In fact, sometimes this only serves to focus our attention on these thoughts and emotions all the more. Perhaps, as an alternative, we should try to see if we can be with these experiences. In this way, acceptance is an alternative to the on-going struggle that can stem from trying to avoid difficult thoughts and emotions. The idea of ‘willingness’ is particularly important.  Would we be willing to experience difficulties if it meant that we were able to work toward something that we value? An example might be accepting that you might experience uncomfortable feelings when speaking in front of people if you were trying to promote a particular cause.  </string>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1202,7 +1218,7 @@ The aim of doing so is to enhance the person’s direct experience of their worl
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" id="8Po-Mu-3FU">
                                 <rect key="frame" x="25" y="20" width="275" height="327"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <mutableString key="text">ACT aims to help clients ‘tune in’ to a sense of themselves as the context in which their whole range of experiences happen. If you were to be asked questions about your history, the only thing that will be consistent is the point of view from which the answer is spoken. Whereas the content of the responses might vary, the ‘I’ of the response will be common to everyone answering the questions.  In this way, the context of the responses transcends the actual content of the response.  To develop a sense of self-as-context participants will be encouraged to cultivate an awareness of the observing self; the part of each of us that can ‘observe’ all of our experiences, and that recognises that we can have a broad range of experiences that change over time.  Enhancing a sense of self-as-context can help us to avoid defining ourselves in terms of specific experiences and private events. It helps us to disentangle from the literal content of our thoughts. Consequently, self-as-context is a form of defusion that helps to make difficult events/experiences less threatening.</mutableString>
+                                <string key="text">ACT aims to help clients ‘tune in’ to a sense of themselves as the context in which their whole range of experiences happen. If you were to be asked questions about your history, the only thing that will be consistent is the point of view from which the answer is spoken. Whereas the content of the responses might vary, the ‘I’ of the response will be common to everyone answering the questions.  In this way, the context of the responses transcends the actual content of the response.  To develop a sense of self-as-context participants will be encouraged to cultivate an awareness of the observing self; the part of each of us that can ‘observe’ all of our experiences, and that recognises that we can have a broad range of experiences that change over time.  Enhancing a sense of self-as-context can help us to avoid defining ourselves in terms of specific experiences and private events. It helps us to disentangle from the literal content of our thoughts. Consequently, self-as-context is a form of defusion that helps to make difficult events/experiences less threatening.</string>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>

@@ -12,12 +12,9 @@
 #import "AppDelegate.h"
 #import "User.h"
 
-@interface AboutACTViewController : UIViewController <UIActionSheetDelegate, MFMailComposeViewControllerDelegate>
+@interface AboutACTViewController : UIViewController <MFMailComposeViewControllerDelegate>
 
 - (IBAction)sendFeedback:(id)sender;
 
-- (IBAction)resetIACT:(id)sender;
-
-@property (strong, nonatomic) IBOutlet UIButton *resetIACTButton;
 @property (strong, nonatomic) IBOutlet UIButton *sendFeedbackButton;
 @end
