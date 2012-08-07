@@ -121,7 +121,7 @@
             
             //get all user parameters from the JSON
             id parsedResponse = [response parsedBody:NULL];
-            //get the auth token and use it for future requests!
+            //get the auth token and use it for future requests
             NSString *token = [parsedResponse valueForKey:@"remember_token"];
             [[RKClient sharedClient] setValue:token forHTTPHeaderField:@"remember_token"];
             
@@ -146,7 +146,6 @@
 
 - (void)modelLoginWithEmail:(NSString *)email andName:(NSString *)name {
     NSError *error = nil;
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"User"];
     [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"email MATCHES %@", email]];
     [fetchRequest setFetchLimit:1];

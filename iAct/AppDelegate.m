@@ -26,7 +26,7 @@
     // Override point for customization after application launch.
     
     //the restkit setup. the first client setup is automatically made the singleton sharedclient, and can be accessed elsewhere.
-    NSURL *iactOnlineURL = [[NSURL alloc]initWithString:@"http://localhost:3000/"];
+    NSURL *iactOnlineURL = [[NSURL alloc]initWithString:@"http://192.168.0.64:3000/"];
     RKClient* client = [RKClient clientWithBaseURL:iactOnlineURL];
     
     //map incoming thoughts to temporary RKThought class

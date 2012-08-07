@@ -86,14 +86,14 @@
 -(void)uploadThoughtWithThought:(Thought *)uploadThought andOccurance:(ThoughtOccurance *)newOccurance {
     NSString *userID = [userDefaults objectForKey:@"ID"];
     NSDictionary* parameters = [NSDictionary dictionaryWithObjectsAndKeys:userID, @"id", uploadThought.content, @"content", newOccurance.initialRating, @"InitialRating", newOccurance.postRating, @"postRating",  nil];
-    [[RKClient sharedClient] post:@"/iphonerecordthought" params:parameters delegate:self];
+    [[RKClient sharedClient] post:@"/iphonerecordthought" params:parameters delegate:nil];
 }
 
 //this method is used to add occurance to an existing thought
 - (void)uploadThoughtOccurance:(ThoughtOccurance *)thoughtOccurance forThought:(Thought *)uploadThought {
     NSString *userID = [userDefaults objectForKey:@"ID"];
     NSDictionary* parameters = [NSDictionary dictionaryWithObjectsAndKeys:userID, @"id", uploadThought.content, @"content", thoughtOccurance.initialRating, @"InitialRating", thoughtOccurance.postRating, @"postRating",  nil];
-    [[RKClient sharedClient] post:@"/iphonerecordoccurance" params:parameters delegate:self];
+    [[RKClient sharedClient] post:@"/iphonerecordoccurance" params:parameters delegate:nil];
 }
 
 - (void)customButtons {
