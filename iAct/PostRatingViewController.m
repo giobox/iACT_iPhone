@@ -24,6 +24,7 @@
 @synthesize newThought;
 @synthesize secondRatingSlider;
 @synthesize doneButton;
+@synthesize thoughtRatingLabel;
 @synthesize managedObjectContext;
 @synthesize sharedData;
 @synthesize userDefaults;
@@ -56,6 +57,7 @@
     [self setUserDefaults:nil];
     [self setSecondRatingSlider:nil];
     [self setDoneButton:nil];
+    [self setThoughtRatingLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -82,6 +84,7 @@
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
+
 //Add a brand new thought to iACT server
 -(void)uploadThoughtWithThought:(Thought *)uploadThought andOccurance:(ThoughtOccurance *)newOccurance {
     NSString *userID = [userDefaults objectForKey:@"ID"];
@@ -95,6 +98,12 @@
     NSDictionary* parameters = [NSDictionary dictionaryWithObjectsAndKeys:userID, @"id", uploadThought.content, @"content", thoughtOccurance.initialRating, @"InitialRating", thoughtOccurance.postRating, @"postRating",  nil];
     [[RKClient sharedClient] post:@"/iphonerecordoccurance" params:parameters delegate:nil];
 }
+
+-(void)userChangedThoughtRating:(id)sender {
+    //update number output for thought when slider value is changed
+    self.thoughtRatingLabel.text = [NSString stringWithFormat:@"%1.1f", self.secondRatingSlider.value];
+}
+
 
 - (void)customButtons {
     //load the images

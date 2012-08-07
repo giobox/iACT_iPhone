@@ -20,7 +20,9 @@
 @property BOOL newThought;
 @property (strong, nonatomic) IBOutlet UISlider *secondRatingSlider;
 @property (strong, nonatomic) IBOutlet UIButton *doneButton;
+@property (strong, nonatomic) IBOutlet UILabel *thoughtRatingLabel;
 
 - (IBAction)finishedRating:(id)sender;
+- (IBAction)userChangedThoughtRating:(id)sender;
 
 @end

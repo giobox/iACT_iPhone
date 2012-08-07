@@ -25,6 +25,7 @@
 @synthesize locMan;
 @synthesize thoughtRatingSlider;
 @synthesize saveButton;
+@synthesize thoughtRatingLabel;
 @synthesize currentLocation;
 @synthesize managedObjectContext = __managedObjectContext;
 @synthesize fetchedResultsController = __fetchedResultsController;
@@ -69,6 +70,7 @@
     [self setFetchedResultsController:nil];
     [self setOccurance:nil];
     [self setSaveButton:nil];
+    [self setThoughtRatingLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -147,5 +149,9 @@
     [saveButton setBackgroundImage:blueButtonImageHighlight forState:UIControlStateHighlighted];
     
     
+}
+- (IBAction)thoughtRatingValueChanged:(id)sender {
+        //update number output for thought when slider value is changed
+        self.thoughtRatingLabel.text = [NSString stringWithFormat:@"%1.1f", self.thoughtRatingSlider.value];
 }
 @end

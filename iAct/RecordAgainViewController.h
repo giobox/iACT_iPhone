@@ -18,5 +18,8 @@
 @property (strong, nonatomic) CLLocationManager *locMan;
 @property (strong, nonatomic) IBOutlet UISlider *thoughtRatingSlider;
 @property (strong, nonatomic) IBOutlet UIButton *saveButton;
+@property (strong, nonatomic) IBOutlet UILabel *thoughtRatingLabel;
 
+
+- (IBAction)thoughtRatingValueChanged:(id)sender;
 @end
