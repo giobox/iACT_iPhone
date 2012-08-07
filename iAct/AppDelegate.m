@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import <RestKit/RestKit.h>
-#import "RKThought.h"
 
 @implementation AppDelegate
 //testing git.
@@ -27,20 +26,10 @@
     // Override point for customization after application launch.
     
     //the restkit setup. the first client setup is automatically made the singleton sharedclient, and can be accessed elsewhere.
-    NSURL *iactOnlineURL = [[NSURL alloc]initWithString:@"http://192.168.0.64:3000/"];
+    NSURL *iactOnlineURL = [[NSURL alloc]initWithString:@"http://localhost:3000/"];
     RKClient* client = [RKClient clientWithBaseURL:iactOnlineURL];
     
     //map incoming thoughts to temporary RKThought class
-    
-    RKObjectMapping* articleMapping = [RKObjectMapping mappingForClass:[RKThought class]];
-    [articleMapping mapKeyPath:@"title" toAttribute:@"title"];
-    [articleMapping mapKeyPath:@"body" toAttribute:@"body"];
-    [articleMapping mapKeyPath:@"author" toAttribute:@"author"];
-    [articleMapping mapKeyPath:@"publication_date" toAttribute:@"publicationDate"];
-    
-    [[RKObjectManager sharedManager].mappingProvider setMapping:articleMapping forKeyPath:@"thought"];
-    
-    
     
     //show indicator in status bar when network activity in progress
     client.requestQueue.showsNetworkActivityIndicatorWhenBusy = YES;
@@ -77,11 +66,6 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     //save the coredata model
     [self saveContext];
-}
-
-
-- (void)resetIACT {
-    
 }
 
 - (void)saveContext

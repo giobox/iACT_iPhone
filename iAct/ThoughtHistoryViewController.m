@@ -21,6 +21,8 @@
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) Thought *thought;
 
+@property (strong, nonatomic) PullToRefreshView *pull;
+
 @property (nonatomic) BOOL editing;
 
 
@@ -28,12 +30,12 @@
 
 @implementation ThoughtHistoryViewController
 {
-    PullToRefreshView *pull;
+   //PullToRefreshView *pull;
 }
 
 @synthesize editButton;
 @synthesize editing;
-
+@synthesize pull;
 @synthesize sharedData;
 @synthesize managedObjectContext = __managedObjectContext;
 @synthesize fetchedResultsController = __fetchedResultsController;
@@ -56,24 +58,48 @@
     sharedData = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     self.managedObjectContext = sharedData.managedObjectContext;
     [self getThoughtData];
+        
+    [super viewDidLoad];
+	// Do any additional setup after loading the view.
+}
+
+- (void)viewDidAppear:(BOOL)animated {
     //setup pull to refresh
     
     pull = [[PullToRefreshView alloc] initWithScrollView:(UIScrollView *) self.tableView];
     [pull setDelegate:self];
     [self.tableView addSubview:pull];
+
     
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
+}
+
+-(void) viewDidDisappear:(BOOL)animated {
+    [pull removeFromSuperview];
+    //need the dealloc method on Pull to trigger- overwise KVO is left watching a table that aint there anymore and causes memory
+    //addressing fault.
+    [self setPull:nil];
 }
 
 - (void)viewDidUnload
 {
+    //[[NSNotificationCenter defaultCenter] removeObserver:self];
+    //[[NSNotificationCenter defaultCenter] removeObserver:self forKeyPath:@"contentOffset"];
+    //[pull removeFromSuperview];
+    //[self.pull removeFromSuperview];
+    
+    //[pull setDelegate:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+    [pull removeFromSuperview];
     [self setSharedData:nil];
     [self setManagedObjectContext:nil];
     [self setFetchedResultsController:nil];
     [self setThoughtArray:nil];
     [self setThought:nil];
     [self setEditButton:nil];
+    [self setPull:nil];
+    
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }	
@@ -105,6 +131,7 @@
     
     NSArray *tempArray = [self.managedObjectContext executeFetchRequest:request error:&error];
     thoughtArray = [NSMutableArray arrayWithArray:tempArray];
+    
     NSLog(@"the number of thoughts is %d", [thoughtArray count]);
 }
 
@@ -244,23 +271,22 @@
 
 -(void) getNewThoughtData
 {
-    
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSString *userID = [userDefaults objectForKey:@"ID"];
     
     NSDictionary* params = [NSDictionary dictionaryWithObjectsAndKeys:userID ,@"id" , nil];
-    //POST login deets
     [[RKClient sharedClient] post:@"/getthoughts" params:params delegate:self];
-    
-    //move to methods for restkit!
-    //[self.tableView reloadData];
-    
-   
 }
+
+
+
+
+
 
 - (void)dealloc {
     [pull removeFromSuperview];
 }
+ 
 
 //this method listens for the server response - handled because we set the delegate to self
 - (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {
@@ -328,6 +354,12 @@
         }
         
     }
+}
+
+
+//Pull to refresh occasionally throwing an unhandled exception - Not one I need to worry about, this method stub listens for it and
+//doe nothing with it.
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
 }
 
 

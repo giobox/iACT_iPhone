@@ -15,7 +15,6 @@
 @implementation MainMenuViewController
 @synthesize recordThoughtButton;
 @synthesize thoughtHistoryButton;
-@synthesize thoughtMapButton;
 @synthesize actInformationButton;
 @synthesize aboutIACTButton;
 @synthesize welcomeLabel;
@@ -48,7 +47,6 @@
     [self setWelcomeLabel:nil];
     [self setRecordThoughtButton:nil];
     [self setThoughtHistoryButton:nil];
-    [self setThoughtMapButton:nil];
     [self setActInformationButton:nil];
     [self setAboutIACTButton:nil];
     [super viewDidUnload];
@@ -83,10 +81,15 @@
     UIImage *blueButtonImageHighlight = [[UIImage imageNamed:@"blueButtonHighlight.png"]
                                      resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
     
-    UIImage *whiteButtonImage = [[UIImage imageNamed:@"whiteButton.png"]
+    UIImage *blackButtonImage = [[UIImage imageNamed:@"blackButton.png"]
                                 resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
-    UIImage *whiteButtonImageHighlight = [[UIImage imageNamed:@"whiteButtonHighlight.png"]
+    UIImage *blackButtonImageHighlight = [[UIImage imageNamed:@"blackButtonHighlight.png"]
                                          resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
+    
+    UIImage *tanButtonImage = [[UIImage imageNamed:@"tanButton.png"]
+                                 resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
+    UIImage *tanButtonImageHighlight = [[UIImage imageNamed:@"tanButtonHighlight.png"]
+                                          resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
     
     UIImage *greenButtonImage = [[UIImage imageNamed:@"greenButton.png"]
                                 resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
@@ -99,15 +102,12 @@
     
     [recordThoughtButton setBackgroundImage:blueButtonImage forState:UIControlStateNormal];
     [recordThoughtButton setBackgroundImage:blueButtonImageHighlight forState:UIControlStateHighlighted];
+        
+    [actInformationButton setBackgroundImage:tanButtonImage forState:UIControlStateNormal];
+    [actInformationButton setBackgroundImage:tanButtonImageHighlight forState:UIControlStateHighlighted];
     
-    [thoughtMapButton setBackgroundImage:whiteButtonImage forState:UIControlStateNormal];
-    [thoughtMapButton setBackgroundImage:whiteButtonImageHighlight forState:UIControlStateHighlighted];
-    
-    [actInformationButton setBackgroundImage:whiteButtonImage forState:UIControlStateNormal];
-    [actInformationButton setBackgroundImage:whiteButtonImageHighlight forState:UIControlStateHighlighted];
-    
-    [aboutIACTButton setBackgroundImage:whiteButtonImage forState:UIControlStateNormal];
-    [aboutIACTButton setBackgroundImage:whiteButtonImageHighlight forState:UIControlStateHighlighted];
+    [aboutIACTButton setBackgroundImage:blackButtonImage forState:UIControlStateNormal];
+    [aboutIACTButton setBackgroundImage:blackButtonImageHighlight forState:UIControlStateHighlighted];
 }
 
 @end

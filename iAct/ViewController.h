@@ -18,6 +18,8 @@
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
+@property (strong, nonatomic) IBOutlet UIButton *signInButton;
+
 - (IBAction)LoginButton:(id)sender;
 
 - (IBAction)hideKeyboard:(id)sender;

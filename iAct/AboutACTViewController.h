@@ -10,6 +10,7 @@
 //import for email sending functions
 #import <MessageUI/MessageUI.h>
 #import "AppDelegate.h"
+#import "User.h"
 
 @interface AboutACTViewController : UIViewController <UIActionSheetDelegate, MFMailComposeViewControllerDelegate>
 

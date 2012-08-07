@@ -63,15 +63,15 @@
 //method clears model and deletes saved data
 - (IBAction)resetIACT:(id)sender {
     //display action sheet to confirm user really wants to do this
-        UIActionSheet *actionSheet;
-        actionSheet=[[UIActionSheet alloc] initWithTitle:@"Are you sure you want to reset iACT and delete all of your data?"
-                                                delegate:self 
-                                       cancelButtonTitle:@"Cancel" 
-                                  destructiveButtonTitle:@"Reset iACT"
-                                       otherButtonTitles:nil];
-        actionSheet.actionSheetStyle=UIActionSheetStyleBlackTranslucent;
-        [actionSheet showFromRect:[(UIButton *)sender frame] 
-                           inView:self.view animated:YES];
+    UIActionSheet *actionSheet;
+    actionSheet=[[UIActionSheet alloc] initWithTitle:@"Are you sure you want to reset iACT and delete all of your data?"
+                                            delegate:self
+                                   cancelButtonTitle:@"Cancel"
+                              destructiveButtonTitle:@"Reset iACT"
+                                   otherButtonTitles:nil];
+    actionSheet.actionSheetStyle=UIActionSheetStyleBlackTranslucent;
+    [actionSheet showFromRect:[(UIButton *)sender frame]
+                       inView:self.view animated:YES];
 }
 
 //protocol method for dismissing the email composer window
@@ -87,31 +87,33 @@
 clickedButtonAtIndex:(NSInteger)buttonIndex {
 	NSString *buttonTitle=[actionSheet buttonTitleAtIndex:buttonIndex];
 	if ([buttonTitle isEqualToString:@"Reset iACT"]) {
-		AppDelegate *sharedData = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-        [sharedData resetIACT];
-	}
-    
+       // NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        //AppDelegate *sharedData = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+       // NSManagedObjectContext  *managedObjectContext = sharedData.managedObjectContext;
+        //}
 }
-    - (void)customButtons {
-        //load the images
-        
-        UIImage *whiteButtonImage = [[UIImage imageNamed:@"whiteButton.png"]
-                                     resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
-        UIImage *whiteButtonImageHighlight = [[UIImage imageNamed:@"whiteButtonHighlight.png"]
-                                              resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
-        
-        UIImage *redButtonImage = [[UIImage imageNamed:@"orangeButton.png"]
-                                     resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
-        UIImage *redButtonImageHighlight = [[UIImage imageNamed:@"orangeButtonHighlight.png"]
-                                              resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
-        // Set the background for the buttons
-        
-        [sendFeedbackButton setBackgroundImage:whiteButtonImage forState:UIControlStateNormal];
-        [sendFeedbackButton setBackgroundImage:whiteButtonImageHighlight forState:UIControlStateHighlighted];
-        
-        [resetIACTButton setBackgroundImage:redButtonImage forState:UIControlStateNormal];
-        [resetIACTButton setBackgroundImage:redButtonImageHighlight forState:UIControlStateHighlighted];
-    }
+}
+    
+- (void)customButtons {
+    //load the images
+    
+    UIImage *whiteButtonImage = [[UIImage imageNamed:@"whiteButton.png"]
+                                 resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
+    UIImage *whiteButtonImageHighlight = [[UIImage imageNamed:@"whiteButtonHighlight.png"]
+                                          resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
+    
+    UIImage *redButtonImage = [[UIImage imageNamed:@"orangeButton.png"]
+                               resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
+    UIImage *redButtonImageHighlight = [[UIImage imageNamed:@"orangeButtonHighlight.png"]
+                                        resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
+    // Set the background for the buttons
+    
+    [sendFeedbackButton setBackgroundImage:whiteButtonImage forState:UIControlStateNormal];
+    [sendFeedbackButton setBackgroundImage:whiteButtonImageHighlight forState:UIControlStateHighlighted];
+    
+    [resetIACTButton setBackgroundImage:redButtonImage forState:UIControlStateNormal];
+    [resetIACTButton setBackgroundImage:redButtonImageHighlight forState:UIControlStateHighlighted];
+}
 
 
 

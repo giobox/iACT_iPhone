@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="12A269" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
     <dependencies>
         <deployment defaultVersion="1296" identifier="iOS"/>
-        <development defaultVersion="4200" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1498"/>
     </dependencies>
     <scenes>
         <!--Login Window-->
@@ -75,8 +74,9 @@
                                 <rect key="frame" x="92" y="262" width="136" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <state key="normal" title="Sign In">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
@@ -92,6 +92,7 @@
                     <connections>
                         <outlet property="emailAddressField" destination="JRu-3X-IhS" id="aqF-gB-Ula"/>
                         <outlet property="passwordField" destination="ODB-pE-xSD" id="nNt-In-SQh"/>
+                        <outlet property="signInButton" destination="5sn-EX-fxu" id="C9l-aE-Awx"/>
                         <segue destination="35B-ot-efY" kind="modal" identifier="toMainMenu" modalTransitionStyle="flipHorizontal" id="Xm2-4P-xeP"/>
                     </connections>
                 </viewController>
@@ -107,11 +108,11 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cmB-kX-bgC">
-                                <rect key="frame" x="20" y="244" width="280" height="37"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cmB-kX-bgC">
+                                <rect key="frame" x="95" y="203" width="130" height="130"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="ACT Information">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -127,8 +128,9 @@
                                 <rect key="frame" x="20" y="359" width="280" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="tintColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="About iACT">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
@@ -170,19 +172,6 @@
                                     <segue destination="gCO-QI-i3e" kind="push" id="aYy-4c-JEu"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Brl-Fy-e3h">
-                                <rect key="frame" x="20" y="199" width="280" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <state key="normal" title="Thought Map">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Hi User" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Eah-e9-Yvf">
                                 <rect key="frame" x="20" y="7" width="280" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -192,6 +181,10 @@
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Chat.png" id="hcH-LL-vYm">
                                 <rect key="frame" x="52" y="100" width="67" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Bookmark.png" id="BUb-bR-XuU">
+                                <rect key="frame" x="127" y="256" width="67" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Calendar-Month.png" id="sZe-dl-v5t">
@@ -214,7 +207,6 @@
                         <outlet property="actInformationButton" destination="cmB-kX-bgC" id="R9K-hR-EX9"/>
                         <outlet property="recordThoughtButton" destination="CcA-t0-cuV" id="IOG-IX-dcB"/>
                         <outlet property="thoughtHistoryButton" destination="tCK-te-5TK" id="MRQ-OX-Mww"/>
-                        <outlet property="thoughtMapButton" destination="Brl-Fy-e3h" id="i7L-BC-j5v"/>
                         <outlet property="welcomeLabel" destination="Eah-e9-Yvf" id="zwB-50-yvw"/>
                     </connections>
                 </viewController>
@@ -230,6 +222,13 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="center" image="black-material.jpg" id="rWo-fC-Zze">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" image="YES" notEnabled="YES"/>
+                                </accessibility>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="WwT-eV-5bP" userLabel="dismiss keyboard button">
                                 <rect key="frame" x="0.0" y="-39" width="320" height="455"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -258,7 +257,7 @@
                                 <rect key="frame" x="40" y="0.0" width="241" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="10" id="cua-73-3TI">
@@ -270,25 +269,25 @@
                                     <action selector="userChangedThoughtRating:" destination="PMa-QI-68O" eventType="valueChanged" id="d3I-HF-0TI"/>
                                 </connections>
                             </slider>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Most Positive" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" id="mH1-bq-mjE">
-                                <rect key="frame" x="249" y="166" width="71" height="49"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Most Negative" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" id="mH1-bq-mjE">
+                                <rect key="frame" x="189" y="166" width="111" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Least Positive" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" id="QH2-6u-LCC">
-                                <rect key="frame" x="0.0" y="166" width="79" height="49"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Least Negative" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" id="QH2-6u-LCC">
+                                <rect key="frame" x="17" y="166" width="114" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="5.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="qIU-7z-YVd">
                                 <rect key="frame" x="139" y="180" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9bO-qg-Aue">
@@ -315,7 +314,7 @@
                         <outlet property="thoughtDescription" destination="pgD-kH-iq8" id="Jgt-nt-sLT"/>
                         <outlet property="thoughtRating" destination="qIU-7z-YVd" id="94R-H3-8MF"/>
                         <outlet property="thoughtRatingSlider" destination="cua-73-3TI" id="pAh-Aq-hJw"/>
-                        <segue destination="Qwx-dW-GMa" kind="push" identifier="showThought" id="Jbr-Dq-xCb"/>
+                        <segue destination="TvH-yk-CD8" kind="push" identifier="manipulateThought" id="Jg0-zS-anP"/>
                     </connections>
                 </viewController>
             </objects>
@@ -346,7 +345,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Record Again">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
@@ -392,6 +391,9 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <connections>
+                                            <segue destination="62v-3v-4zF" kind="push" identifier="occuranceViewSegue" id="tQs-87-ceA"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -402,15 +404,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Thought Detail" id="fkM-T2-Gdp"/>
+                    <navigationItem key="navigationItem" title="Thought Overview" id="fkM-T2-Gdp"/>
                     <connections>
+                        <outlet property="recordAgainButton" destination="vzQ-FL-fiG" id="6hr-aw-sP0"/>
                         <outlet property="thoughtDescription" destination="Yat-Ch-XIx" id="Hyi-OL-Uux"/>
                         <outlet property="thoughtMap" destination="C4c-LQ-PNw" id="jp0-a3-0nx"/>
                         <outlet property="thoughtOccuranceTable" destination="SJx-zP-X4C" id="bpt-tK-IHK"/>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="2199" y="795"/>
+            <point key="canvasLocation" x="2142" y="795"/>
         </scene>
         <!--Record Again-->
         <scene sceneID="4GQ-dn-A8n">
@@ -421,6 +424,13 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="center" image="black-material.jpg" id="Svu-Tp-nsK">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" image="YES" notEnabled="YES"/>
+                                </accessibility>
+                            </imageView>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="10" id="bAa-dg-oOA">
                                 <rect key="frame" x="18" y="191" width="284" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -434,21 +444,21 @@
                                 <rect key="frame" x="249" y="141" width="71" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Least Positive" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" id="4yD-ag-Qcf">
                                 <rect key="frame" x="0.0" y="141" width="79" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="5.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="ieA-mv-IhJ">
                                 <rect key="frame" x="139" y="155" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="29b-ET-O0e">
@@ -456,22 +466,21 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Save Thought">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="recordThought:" destination="PMa-QI-68O" eventType="touchUpInside" id="adj-Ut-LHT"/>
-                                    <action selector="saveThought:" destination="Xd2-rT-XW0" eventType="touchUpInside" id="N7Y-2L-SB8"/>
+                                    <segue destination="TvH-yk-CD8" kind="push" identifier="recordNewOcurranceSegue" id="ajx-Ji-3Oo"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Thought Description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="10" id="slb-7n-uTH">
                                 <rect key="frame" x="26" y="20" width="269" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -479,6 +488,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Sh3-gc-CKK"/>
                     <connections>
+                        <outlet property="saveButton" destination="29b-ET-O0e" id="MdL-BI-c0B"/>
                         <outlet property="thoughtDescriptionLabel" destination="slb-7n-uTH" id="saN-6V-ZZ3"/>
                         <outlet property="thoughtRatingSlider" destination="bAa-dg-oOA" id="5N5-td-k8N"/>
                     </connections>
@@ -486,81 +496,188 @@
             </objects>
             <point key="canvasLocation" x="2772" y="795"/>
         </scene>
-        <!--display-->
-        <scene sceneID="S1C-4b-Thf">
+        <!--Thought Occurance Display-->
+        <scene sceneID="Mto-a2-ZkC">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aui-bD-XMp" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="display" id="Qwx-dW-GMa" userLabel="display" customClass="ThoughtDisplayViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="TXa-2D-gGH">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eLL-Ol-uBC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="62v-3v-4zF" userLabel="Thought Occurance Display" customClass="OccuranceDetailViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oi6-TC-8dG">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ml4-PF-GLx">
-                                <rect key="frame" x="40" y="372" width="240" height="37"/>
+                            <imageView userInteractionEnabled="NO" contentMode="center" image="black-material.jpg" id="iLg-56-hQo">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" image="YES" notEnabled="YES"/>
+                                </accessibility>
+                            </imageView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" id="eKe-uv-bKZ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </mapView>
+                            <view userInteractionEnabled="NO" alpha="0.75" contentMode="scaleToFill" id="1Oh-SU-D1t">
+                                <rect key="frame" x="0.0" y="265" width="320" height="151"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Thought Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="gCt-03-CKJ">
+                                        <rect key="frame" x="20" y="20" width="280" height="63"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Rating:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="g0x-10-sNi">
+                                        <rect key="frame" x="20" y="80" width="57" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="5" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="f3n-Kh-16z">
+                                        <rect key="frame" x="79" y="80" width="42" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Thought Occurance" id="xYv-ET-rAy"/>
+                    <connections>
+                        <outlet property="ThoughtOccuranceMap" destination="eKe-uv-bKZ" id="kaJ-4I-Qpy"/>
+                        <outlet property="thoughtDescriptionLabel" destination="gCt-03-CKJ" id="iA8-1h-zln"/>
+                        <outlet property="thoughtRatingLabel" destination="f3n-Kh-16z" id="dJg-1s-hVE"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="2766" y="1393"/>
+        </scene>
+        <!--post rating-->
+        <scene sceneID="XWe-6T-U5e">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nZp-pz-1fa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="Jb2-Vg-Dkz" userLabel="post rating" customClass="PostRatingViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xuU-JC-LRy">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="center" image="black-material.jpg" id="MR2-zL-aQg">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" image="YES" notEnabled="YES"/>
+                                </accessibility>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Please rate this thought again:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="cea-Jx-MrA">
+                                <rect key="frame" x="40" y="80" width="241" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="10" id="mGs-3G-Fl4">
+                                <rect key="frame" x="18" y="186" width="284" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="minimumTrackTintColor" red="0.19213589389999999" green="1" blue="0.47762763530000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="maximumTrackTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="userChangedThoughtRating:" destination="PMa-QI-68O" eventType="valueChanged" id="EgI-vm-XvN"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Most Negative" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" id="AYC-EB-TWK">
+                                <rect key="frame" x="191" y="135" width="111" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Least Negative" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" id="EB3-jo-BMc">
+                                <rect key="frame" x="19" y="135" width="114" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="5.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="yzL-sN-U3B">
+                                <rect key="frame" x="141" y="149" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kdP-h4-twM">
+                                <rect key="frame" x="124" y="291" width="72" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Done!">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="finishViewing:" destination="Qwx-dW-GMa" eventType="touchUpInside" id="RBi-uS-gWG"/>
+                                    <action selector="finishedRating:" destination="Jb2-Vg-Dkz" eventType="touchUpInside" id="HS8-Fd-gPO"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Thought Description:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="dIq-tw-1w5">
-                                <rect key="frame" x="80" y="15" width="160" height="21"/>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="mHO-p4-hcF"/>
+                    <connections>
+                        <outlet property="doneButton" destination="kdP-h4-twM" id="bbV-eQ-Ucp"/>
+                        <outlet property="secondRatingSlider" destination="mGs-3G-Fl4" id="3A3-Yq-szn"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="3779" y="177"/>
+        </scene>
+        <!--Manipilation View Controller-->
+        <scene sceneID="DP1-tJ-LKq">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KJO-UY-pw3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="TvH-yk-CD8" customClass="ACTManipilationViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bzq-gW-Om5" userLabel="ACT Manipulation">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" contentMode="left" text="Thought Content" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="10" id="oSp-5U-IZk">
+                                <rect key="frame" x="0.0" y="147" width="320" height="121"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Location: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="kEf-38-C7T">
-                                <rect key="frame" x="80" y="153" width="160" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Your Rating:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="nvJ-R1-Cle">
-                                <rect key="frame" x="86" y="124" width="99" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <mapView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" mapType="standard" id="IfO-y2-rmH">
-                                <rect key="frame" x="40" y="176" width="240" height="126"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            </mapView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Description of thought here." id="9yv-Eu-5RL">
-                                <rect key="frame" x="40" y="44" width="240" height="72"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0.0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="R7x-eH-kfA">
-                                <rect key="frame" x="193" y="124" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="oAW-c7-bgJ" appends="YES" id="XaP-a9-Dpo"/>
+                        </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="Thought Display" id="JCc-CE-ryi"/>
+                    <navigationItem key="navigationItem" id="WeX-ZE-jFi">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="idG-Qh-QFq">
+                            <connections>
+                                <segue destination="Jb2-Vg-Dkz" kind="push" identifier="saveThought" id="JQ7-MT-xTN"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="thoughtLocationDisplay" destination="IfO-y2-rmH" id="3wQ-Ct-yKR"/>
-                        <outlet property="thoughtRatingDisplay" destination="R7x-eH-kfA" id="Ief-87-Yg7"/>
-                        <outlet property="thoughtTextDisplay" destination="9yv-Eu-5RL" id="Ya2-sd-svB"/>
+                        <outlet property="thoughtDescriptionLabel" destination="oSp-5U-IZk" id="wY3-kb-vHL"/>
                     </connections>
                 </viewController>
+                <tapGestureRecognizer id="oAW-c7-bgJ">
+                    <connections>
+                        <action selector="moveToTap:" destination="TvH-yk-CD8" id="ocU-OX-jOH"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2551" y="177"/>
+            <point key="canvasLocation" x="3312" y="177"/>
         </scene>
         <!--ACT Information-->
         <scene sceneID="Bod-27-Z9o">
@@ -570,6 +687,12 @@
                     <view key="view" contentMode="scaleToFill" id="yYp-DG-GaS">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" id="R2x-UB-zy4">
+                                <rect key="frame" x="141" y="349" width="38" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </pageControl>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="ACT Information" id="Tna-LG-4PZ"/>
@@ -737,6 +860,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Bookmark.png" width="60" height="60"/>
         <image name="Calendar-Month.png" width="60" height="60"/>
         <image name="Chat.png" width="60" height="60"/>
         <image name="black-material.jpg" width="640" height="960"/>
@@ -744,6 +868,15 @@
     <classes>
         <class className="ACTInformationViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ACTInformationViewController.h"/>
+        </class>
+        <class className="ACTManipilationViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ACTManipilationViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="btnMoveTo:"/>
+                <relationship kind="action" name="moveToTap:"/>
+                <relationship kind="outlet" name="movingButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="thoughtDescriptionLabel" candidateClass="UILabel"/>
+            </relationships>
         </class>
         <class className="AboutACTViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AboutACTViewController.h"/>
@@ -762,14 +895,28 @@
                 <relationship kind="outlet" name="actInformationButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="recordThoughtButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="thoughtHistoryButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="thoughtMapButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="welcomeLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="OccuranceDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OccuranceDetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="ThoughtOccuranceMap" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="thoughtDescriptionLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="thoughtRatingLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="PostRatingViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PostRatingViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="finishedRating:"/>
+                <relationship kind="outlet" name="secondRatingSlider" candidateClass="UISlider"/>
             </relationships>
         </class>
         <class className="RecordAgainViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RecordAgainViewController.h"/>
             <relationships>
-                <relationship kind="action" name="saveThought:"/>
+                <relationship kind="outlet" name="saveButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="thoughtDescriptionLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="thoughtRatingSlider" candidateClass="UISlider"/>
             </relationships>
@@ -777,18 +924,10 @@
         <class className="ThoughtDetailViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ThoughtDetailViewController.h"/>
             <relationships>
+                <relationship kind="outlet" name="recordAgainButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="thoughtDescription" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="thoughtMap" candidateClass="MKMapView"/>
                 <relationship kind="outlet" name="thoughtOccuranceTable" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="ThoughtDisplayViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ThoughtDisplayViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="finishViewing:"/>
-                <relationship kind="outlet" name="thoughtLocationDisplay" candidateClass="MKMapView"/>
-                <relationship kind="outlet" name="thoughtRatingDisplay" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="thoughtTextDisplay" candidateClass="UITextView"/>
             </relationships>
         </class>
         <class className="ThoughtHistoryViewController" superclassName="UITableViewController">
@@ -817,6 +956,7 @@
                 <relationship kind="action" name="hideKeyboard:"/>
                 <relationship kind="outlet" name="emailAddressField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="passwordField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="signInButton" candidateClass="UIButton"/>
             </relationships>
         </class>
     </classes>
@@ -826,6 +966,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="QEp-yN-NBB"/>
+        <segue reference="hDg-9G-bzK"/>
+        <segue reference="ajx-Ji-3Oo"/>
     </inferredMetricsTieBreakers>
 </document>

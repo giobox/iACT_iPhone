@@ -32,6 +32,7 @@
 @synthesize currentLocation;
 @synthesize thought;
 @synthesize occurance;
+@synthesize newThought;
 
 
 @synthesize managedObjectContext = __managedObjectContext;
@@ -94,39 +95,21 @@
 }
 
 - (IBAction)recordThought:(id)sender {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     AppDelegate *sharedData = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     self.managedObjectContext = sharedData.managedObjectContext;
     
-    //first check user has filled all required info, error message if not
-    if ([self.thoughtDescription.text isEqualToString:@""]) {
-        UIAlertView *incompleteThoughtDialog;
-        incompleteThoughtDialog = [[UIAlertView alloc] initWithTitle:@"Incomplete Thought"   
-                                                             message:@"You forgot to enter a thought description!"
-                                                            delegate:nil
-                                                   cancelButtonTitle:@"Ok"
-                                                   otherButtonTitles: nil];
-        [incompleteThoughtDialog show];
-    } else {
-        
-        //if input valid begin process of recording the thought
+    //If users input is valid, proceed
+    if([self validateInput]) {
         //1. get the current time
         NSDate *thoughtTime = [NSDate date];
-        
         //2. save the thought name
         NSString *thoughtDesc = self.thoughtDescription.text;
-        
         //3. Save the thought rating
         float thoughtScore = self.thoughtRatingSlider.value;
-        NSInteger scoreInt = (int) thoughtScore;
-        NSNumber *integer = [NSNumber numberWithInt:scoreInt]; 
-        
-        
         //4. get the thought location
         //handled in the location manager listener method which then stores location in currentlocation
         //however must shut GPS down
         [self.locMan stopUpdatingLocation];
-        
         //5. before saving check to see if this thought has been recorded before. if so just add an occurance
         NSError *error = nil;
         NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Thought"];
@@ -135,6 +118,7 @@
         NSInteger count = [self.managedObjectContext countForFetchRequest:fetchRequest error:&error];
         if (!error){
             if (count > 0){
+                newThought = NO;
                 //it was found
                 //get the thought and just add another instance rather than a new thought
                 NSArray *userArray = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
@@ -149,28 +133,13 @@
                 [occurance setHasThought:thought];
                 [thought addHasOccuranceObject:occurance];
                 [self.managedObjectContext save:nil];
-                
-                //send occurance to iACT online
-                
-                [self performSegueWithIdentifier:@"showThought" sender:self];  
+                                
+                [self performSegueWithIdentifier:@"manipulateThought" sender:self];  
                 
             } else {
-                //send the thought to iACT Online   
-                //construct parameter dictionary for the login attempt
-                //NSString *sharedSecret = [userDefaults objectForKey:@"remember_token"];
-                NSString *userID = [userDefaults objectForKey:@"ID"];
-                NSDictionary* parameters = [NSDictionary dictionaryWithObjectsAndKeys:userID, @"id", thoughtDesc, @"content", integer, @"InitialRating",  nil];
-                
-                //POST login details. REPLACE with new thread - no point locking UI while waiting on slow data connection
-                [[RKClient sharedClient] post:@"/iphonerecordthought" params:parameters delegate:self];
-                
-                
-                
-                
-                
                 //save the thought to the model
                 //create the thought
-                
+                newThought = YES;
                 thought = [NSEntityDescription insertNewObjectForEntityForName:@"Thought" inManagedObjectContext:self.managedObjectContext];
                 NSLog(@"this user is called %@", sharedData.loggedInUser.name);
                 thought.content=thoughtDesc;
@@ -191,14 +160,10 @@
                 [self.managedObjectContext save:nil];
                 NSInteger thoughtCount = [sharedData.loggedInUser.hasThought count];
                 NSLog(@"This user now has %d thoughts", thoughtCount);
+                [self performSegueWithIdentifier:@"manipulateThought" sender:self];  
             }
-            
-            
         }
-        
-        
     }
-    
 }
 
 #pragma mark - location manager methods
@@ -224,63 +189,36 @@
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[ segue identifier] isEqualToString:@"showThought"]) {
+    if ([[ segue identifier] isEqualToString:@"manipulateThought"]) {
         //pass the created thought and occurance to the next view
-        ThoughtDisplayViewController *displayViewController = [segue destinationViewController];
-        displayViewController.thought = self.thought;
-        displayViewController.occurance=self.occurance;
+        ACTManipilationViewController *manipulationViewController = [segue destinationViewController];
+        manipulationViewController.thought = self.thought;
+        manipulationViewController.occurance = self.occurance;
+        manipulationViewController.newThought = self.newThought;
     }
 } 
 
 
-//this method listens for the server response - handled because we set the delegate to self
-- (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {    
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     
-    if ([response statusCode]==403) {
-        NSLog(@"log in failed");
-        //Display login failure dialog
-        [userDefaults setBool:NO forKey:@"loginStatus"];
-        UIAlertView *incorrectPasswordDialog;
-        incorrectPasswordDialog = [[UIAlertView alloc] initWithTitle:@"Incorrect Details"   
-                                                             message:@"You entered your email address or password incorrectly, please try again"
+
+- (BOOL)validateInput {
+    if ([self.thoughtDescription.text isEqualToString:@""]) {
+        UIAlertView *incompleteThoughtDialog;
+        incompleteThoughtDialog = [[UIAlertView alloc] initWithTitle:@"Incomplete Thought"
+                                                             message:@"You forgot to enter a thought description!"
                                                             delegate:nil
                                                    cancelButtonTitle:@"Ok"
                                                    otherButtonTitles: nil];
-        [incorrectPasswordDialog show];
+        [incompleteThoughtDialog show];
+        return NO;
     }
+        else
+            return YES;
+}
+
+- (void)addThoughtToModel {
     
-    if ([request isGET]) {  
-        NSLog(@"gRetrieved XML: %@", [response bodyAsString]);  
-        
-        if ([response isOK]) {  
-            // Success! Let's take a look at the data  
-            NSLog(@"oRetrieved XML: %@", [response bodyAsString]);  
-        }  
-        
-    } else if ([request isPOST]) {  
-        NSLog(@"server response: %@", [response bodyAsString]);
-        // Handling POST /other.json          
-        if ([response isJSON]) {  
-            NSLog(@"Got a JSON response back from our POST!:");
-            NSLog(@"server response: %@", [response bodyAsString]);
-            
-            //if we logged the thought successfully, move on!
-            [self performSegueWithIdentifier:@"showThought" sender:self];  
-            
-            
-        }  
-        
-    } else if ([request isDELETE]) {  
-        
-        // Handling DELETE /missing_resource.txt  
-        if ([response isNotFound]) {  
-            NSLog(@"The resource path '%@' was not found.", [request resourcePath]);  
-        }  
-    }  
-}  
-    
-    
+}
 
 
 - (void)customButtons {

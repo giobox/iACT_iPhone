@@ -13,6 +13,8 @@
 #import "AppDelegate.h"
 #import "Thought.h"
 #import "ThoughtOccurance.h"
+#import "PlaceMark.h"
+#import "OccuranceDetailViewController.h"
 
 @interface ThoughtDetailViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
@@ -21,6 +23,7 @@
 @property (strong, nonatomic) IBOutlet UITableView *thoughtOccuranceTable;
 @property (strong, nonatomic) Thought *thought;
 
+@property (strong, nonatomic) IBOutlet UIButton *recordAgainButton;
 
 -(void)getInstances;
 @end

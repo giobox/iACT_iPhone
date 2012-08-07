@@ -18,6 +18,7 @@
 @synthesize emailAddressField;
 @synthesize passwordField;
 @synthesize managedObjectContext = __managedObjectContext;
+@synthesize signInButton;
 @synthesize fetchedResultsController = __fetchedResultsController;
 @synthesize sharedData;
 
@@ -39,14 +40,19 @@
 
 - (void)viewDidLoad
 {
+    [self customButtons];
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)viewDidUnload
 {
+    [self setFetchedResultsController:nil];
+    [self setManagedObjectContext:nil];
+    [self setSharedData:nil];
     [self setEmailAddressField:nil];
     [self setPasswordField:nil];
+    [self setSignInButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -174,6 +180,20 @@
     }    
     
 }
+
+- (void)customButtons {
+    //load the images
+    UIImage *blueButtonImage = [[UIImage imageNamed:@"blueButton.png"]
+                                resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
+    UIImage *blueButtonImageHighlight = [[UIImage imageNamed:@"blueButtonHighlight.png"]
+                                         resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
+    
+
+    
+    [signInButton setBackgroundImage:blueButtonImage forState:UIControlStateNormal];
+    [signInButton setBackgroundImage:blueButtonImageHighlight forState:UIControlStateHighlighted];
+}
+
 
 
 @end

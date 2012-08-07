@@ -9,14 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 #import <CoreLocation/CoreLocation.h>
-#import <RestKit/RestKit.h>
 #import "ThoughtOccurance.h"
+#import "ACTManipilationViewController.h"
 
-@interface RecordAgainViewController : UIViewController <CLLocationManagerDelegate, RKRequestDelegate>
+@interface RecordAgainViewController : UIViewController <CLLocationManagerDelegate>
 @property (strong, nonatomic) IBOutlet UILabel *thoughtDescriptionLabel;
 @property (strong, nonatomic) Thought *thought;
 @property (strong, nonatomic) CLLocationManager *locMan;
 @property (strong, nonatomic) IBOutlet UISlider *thoughtRatingSlider;
+@property (strong, nonatomic) IBOutlet UIButton *saveButton;
 
-- (IBAction)saveThought:(id)sender;
 @end

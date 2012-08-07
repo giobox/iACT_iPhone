@@ -14,6 +14,7 @@
 @property (strong, nonatomic) AppDelegate *sharedData;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) ThoughtOccurance *occurance;
 
 @end
 
@@ -23,9 +24,11 @@
 @synthesize thought;
 @synthesize locMan;
 @synthesize thoughtRatingSlider;
+@synthesize saveButton;
 @synthesize currentLocation;
 @synthesize managedObjectContext = __managedObjectContext;
 @synthesize fetchedResultsController = __fetchedResultsController;
+@synthesize occurance;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -42,6 +45,8 @@
     //gives some time to get an accurate location fix, without leaving on for ages and killing battery.
     sharedData = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     self.managedObjectContext = sharedData.managedObjectContext;
+    [self customButtons];
+    
     self.locMan = [[CLLocationManager alloc] init];
     self.locMan.delegate = self;
     locMan.distanceFilter= 200;
@@ -58,6 +63,12 @@
     [self setThoughtDescriptionLabel:nil];
     [self setThoughtRatingSlider:nil];
     [self setCurrentLocation:nil];
+    [self setSharedData:nil];
+    [self setThought:nil];
+    [self setManagedObjectContext:nil];
+    [self setFetchedResultsController:nil];
+    [self setOccurance:nil];
+    [self setSaveButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -72,28 +83,38 @@
     //load the description into the view
     self.thoughtDescriptionLabel.text = self.thought.content;
 }
-- (IBAction)saveThought:(id)sender {
+- (void)saveThoughtOccurance {
     float thoughtScore = self.thoughtRatingSlider.value;
     NSDate *thoughtTime = [NSDate date];
     //4. get the thought location
     //handled in the location manager listener method which then stores location in currentlocation
     //however must shut GPS down
     [self.locMan stopUpdatingLocation];
-   
+    
     //create the occurence
-    ThoughtOccurance *occurance = [NSEntityDescription insertNewObjectForEntityForName:@"ThoughtOccurance" inManagedObjectContext:self.managedObjectContext];
-    occurance.date = thoughtTime;
-    occurance.initialRating = [NSNumber numberWithFloat:thoughtScore];
-    occurance.latitude = [NSNumber numberWithDouble:currentLocation.coordinate.latitude];
-    occurance.longitude = [NSNumber numberWithDouble:currentLocation.coordinate.longitude];
+    self.occurance = [NSEntityDescription insertNewObjectForEntityForName:@"ThoughtOccurance" inManagedObjectContext:self.managedObjectContext];
+    self.occurance.date = thoughtTime;
+    self.occurance.initialRating = [NSNumber numberWithFloat:thoughtScore];
+    self.occurance.latitude = [NSNumber numberWithDouble:currentLocation.coordinate.latitude];
+    self.occurance.longitude = [NSNumber numberWithDouble:currentLocation.coordinate.longitude];
     
-    [occurance setHasThought:thought];
-    [thought addHasOccuranceObject:occurance];
+    [self.occurance setHasThought:thought];
+    [thought addHasOccuranceObject:self.occurance];
     [self.managedObjectContext save:nil];
-    
-    //pop back to root of controller
-    [self.navigationController popToRootViewControllerAnimated:YES];
 }
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[ segue identifier] isEqualToString:@"recordNewOcurranceSegue"]) {
+        //pass the created thought and occurance to the next view
+        [self saveThoughtOccurance];
+        ACTManipilationViewController *manipulationViewController = [segue destinationViewController];
+        manipulationViewController.thought = self.thought;
+        manipulationViewController.occurance = self.occurance;
+        manipulationViewController.newThought = NO;
+    }
+}
+
+#pragma mark - Core Location
 
 //This protocol method gets location updates
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
@@ -113,5 +134,18 @@
         [self.locMan stopUpdatingLocation];
         [self setLocMan:nil];
     }
+}
+
+- (void)customButtons {
+    //load the images
+    UIImage *blueButtonImage = [[UIImage imageNamed:@"blueButton.png"]
+                                resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
+    UIImage *blueButtonImageHighlight = [[UIImage imageNamed:@"blueButtonHighlight.png"]
+                                         resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
+    
+    [saveButton setBackgroundImage:blueButtonImage forState:UIControlStateNormal];
+    [saveButton setBackgroundImage:blueButtonImageHighlight forState:UIControlStateHighlighted];
+    
+    
 }
 @end

@@ -10,11 +10,9 @@
 //need core location for GPS fix
 #import <CoreLocation/CoreLocation.h>
 #import "AppDelegate.h"
-#import <RestKit/RestKit.h>
+#import "ACTManipilationViewController.h"
 
-#import "ThoughtDisplayViewController.h"
-
-@interface ThoughtRecorderViewController : UIViewController <CLLocationManagerDelegate, RKRequestDelegate>
+@interface ThoughtRecorderViewController : UIViewController <CLLocationManagerDelegate>
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
@@ -23,6 +21,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *thoughtRating;
 @property (strong, nonatomic) IBOutlet UIButton *recordThoughtButton;
 @property (strong, nonatomic) CLLocationManager *locMan;
+@property BOOL newThought;
 //recent location
 
 - (IBAction)hideKeyboard:(id)sender;
