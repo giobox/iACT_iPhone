@@ -13,10 +13,13 @@
 #import "PullToRefreshView.h"
 #import <RestKit/CoreData.h>
 
-
+/**
+Class displays a UITable of all previously recorded thoughts. Also facilites refreshing the thought history with new thoughts added
+ by service user's therapist.
+ */
 @interface ThoughtHistoryViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, PullToRefreshViewDelegate, RKRequestDelegate>
 
 - (IBAction)editThoughtList:(UIBarButtonItem *)sender;
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *editButton;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *editButton; /**< Edit thought history button  */
 
 @end

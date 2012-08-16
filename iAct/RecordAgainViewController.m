@@ -10,11 +10,11 @@
 
 @interface RecordAgainViewController ()
 
-@property (strong, nonatomic) CLLocation *currentLocation;
+@property (strong, nonatomic) CLLocation *currentLocation; /**< GPS Location of thought  */
 @property (strong, nonatomic) AppDelegate *sharedData;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
-@property (strong, nonatomic) ThoughtOccurance *occurance;
+@property (strong, nonatomic) ThoughtOccurance *occurance; /**< New occurence  */
 
 @end
 
@@ -35,7 +35,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
@@ -54,7 +53,6 @@
     [locMan startUpdatingLocation];
 
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
 }
 
 - (void)viewDidUnload
@@ -72,7 +70,6 @@
     [self setSaveButton:nil];
     [self setThoughtRatingLabel:nil];
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -81,10 +78,13 @@
 }
 
 - (void) viewDidAppear:(BOOL)animated {
-
     //load the description into the view
     self.thoughtDescriptionLabel.text = self.thought.content;
 }
+
+/**
+Helper method saves new occurence to CoreData model in preparation for segue to manipulation screen.
+ */
 - (void)saveThoughtOccurance {
     float thoughtScore = self.thoughtRatingSlider.value;
     NSDate *thoughtTime = [NSDate date];
@@ -105,6 +105,9 @@
     [self.managedObjectContext save:nil];
 }
 
+/**
+ Prepares data for sending to next view controller. Passes thought and occurence to next view controller.
+ */
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[ segue identifier] isEqualToString:@"recordNewOcurranceSegue"]) {
         //pass the created thought and occurance to the next view
@@ -138,6 +141,9 @@
     }
 }
 
+/**
+ Applies custom formatting to UIButtons.
+ */
 - (void)customButtons {
     //load the images
     UIImage *blueButtonImage = [[UIImage imageNamed:@"blueButton.png"]
@@ -147,9 +153,11 @@
     
     [saveButton setBackgroundImage:blueButtonImage forState:UIControlStateNormal];
     [saveButton setBackgroundImage:blueButtonImageHighlight forState:UIControlStateHighlighted];
-    
-    
 }
+
+/**
+ Method updates rating label in real time as user changes rating slider.
+ */
 - (IBAction)thoughtRatingValueChanged:(id)sender {
         //update number output for thought when slider value is changed
         self.thoughtRatingLabel.text = [NSString stringWithFormat:@"%1.1f", self.thoughtRatingSlider.value];

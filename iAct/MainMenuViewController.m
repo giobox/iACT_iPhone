@@ -23,7 +23,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
@@ -34,12 +33,9 @@
     //set wallpaper
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"black-material.jpg"]];
     //print users name at top
-    self.welcomeLabel.text = [NSString stringWithFormat:@"Hi, %@", [userDefaults objectForKey:@"name"]];
-    
-    //Custom buttons
+    self.welcomeLabel.text = [NSString stringWithFormat:@"Hi, %@", [userDefaults objectForKey:@"name"]];    
     [self customButtons];
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
 }
 
 - (void)viewDidUnload
@@ -50,7 +46,6 @@
     [self setActInformationButton:nil];
     [self setAboutIACTButton:nil];
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -58,10 +53,12 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+/**
+ Logout method. when logout button pressed user is logged out of application, their username and password removed from NSUserDefaults
+ property list. Logged in status BOOL set to NO and segue to login screen performed.
+ */
 - (IBAction)logOut:(id)sender {
-    //save the user's model
     AppDelegate *sharedData = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    
     
     //set all of the login details to null/no etc
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
@@ -74,6 +71,9 @@
     sharedData.loggedInUser = nil;
 }
 
+/**
+ Applies custom formatting to UIButtons.
+ */
 - (void)customButtons {
     //load the images
     UIImage *blueButtonImage = [[UIImage imageNamed:@"blueButton.png"]

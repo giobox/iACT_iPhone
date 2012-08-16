@@ -12,17 +12,19 @@
 #import "AppDelegate.h"
 #import "ACTManipilationViewController.h"
 
+/**
+ Class to display the intial thought recording view.
+ */
 @interface ThoughtRecorderViewController : UIViewController <CLLocationManagerDelegate>
 
-@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext; /**< CoreData model.  */
 
-@property (strong, nonatomic) IBOutlet UITextField *thoughtDescription;
-@property (strong, nonatomic) IBOutlet UISlider *thoughtRatingSlider;
-@property (strong, nonatomic) IBOutlet UILabel *thoughtRating;
-@property (strong, nonatomic) IBOutlet UIButton *recordThoughtButton;
-@property (strong, nonatomic) CLLocationManager *locMan;
-@property BOOL newThought;
-//recent location
+@property (strong, nonatomic) IBOutlet UITextField *thoughtDescription; /**< Text entry field for thought description.  */
+@property (strong, nonatomic) IBOutlet UISlider *thoughtRatingSlider; /**< Rating slider for intial thought rating.  */
+@property (strong, nonatomic) IBOutlet UILabel *thoughtRating; /**< Label displaying presently selected rating.  */
+@property (strong, nonatomic) IBOutlet UIButton *recordThoughtButton; /**< Button to segue to manipulation screen.  */
+@property (strong, nonatomic) CLLocationManager *locMan; /**< Location manager to record GPS position of thought.  */
+@property BOOL newThought; /**< Boolean indicating that this is a new thought, and not a new occurence. This informs next whether to create a new thought entity or new thought occurence entity. */
 
 - (IBAction)hideKeyboard:(id)sender;
 - (IBAction)userChangedThoughtRating:(id)sender;

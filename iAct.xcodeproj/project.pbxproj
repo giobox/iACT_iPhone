@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D03437A15DD0FF300030D61 /* Thought.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D03437915DD0FF300030D61 /* Thought.m */; };
+		9D03437D15DD103200030D61 /* ThoughtOccurance.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D03437C15DD103200030D61 /* ThoughtOccurance.m */; };
+		9D03438015DD104700030D61 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D03437F15DD104700030D61 /* User.m */; };
 		9D094D5E15D00F5300A15642 /* OccuranceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D094D5D15D00F5300A15642 /* OccuranceDetailViewController.m */; };
-		9D173AB615C2B1430076B0B1 /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D173AB515C2B1430076B0B1 /* CoreDataTableViewController.m */; };
 		9D201B5B15C15C6300A038E4 /* thoughtModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9D201B5915C15C6300A038E4 /* thoughtModel.xcdatamodeld */; };
 		9D231F6515A20E11005C79A3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D231F6415A20E11005C79A3 /* CoreLocation.framework */; };
 		9D231F8115A25609005C79A3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D231F8015A25609005C79A3 /* MapKit.framework */; };
@@ -36,9 +38,6 @@
 		9D7DC38115D158C8005D6C3D /* toolbarhexpng@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D7DC38015D158C8005D6C3D /* toolbarhexpng@2x.png */; };
 		9D7DC38915D15B0E005D6C3D /* thoughtpng.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D7DC38815D15B0D005D6C3D /* thoughtpng.png */; };
 		9D7DC38B15D15B4B005D6C3D /* thoughtpng@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D7DC38A15D15B4B005D6C3D /* thoughtpng@2x.png */; };
-		9D81033115C28EAC00AC36AD /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D81033015C28EAC00AC36AD /* User.m */; };
-		9D81033415C28EAC00AC36AD /* ThoughtOccurance.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D81033315C28EAC00AC36AD /* ThoughtOccurance.m */; };
-		9D81033715C28EAC00AC36AD /* Thought.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D81033615C28EAC00AC36AD /* Thought.m */; };
 		9D9A35A415CED742005746DC /* Bookmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D9A35A315CED742005746DC /* Bookmark.png */; };
 		9D9A35A915CEDB6C005746DC /* tanButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D9A35A515CEDB6C005746DC /* tanButton.png */; };
 		9D9A35AA15CEDB6C005746DC /* tanButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D9A35A615CEDB6C005746DC /* tanButton@2x.png */; };
@@ -132,10 +131,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9D03437815DD0FF300030D61 /* Thought.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Thought.h; path = iAct/Thought.h; sourceTree = "<group>"; };
+		9D03437915DD0FF300030D61 /* Thought.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Thought.m; path = iAct/Thought.m; sourceTree = "<group>"; };
+		9D03437B15DD103200030D61 /* ThoughtOccurance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThoughtOccurance.h; path = iAct/ThoughtOccurance.h; sourceTree = "<group>"; };
+		9D03437C15DD103200030D61 /* ThoughtOccurance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThoughtOccurance.m; path = iAct/ThoughtOccurance.m; sourceTree = "<group>"; };
+		9D03437E15DD104700030D61 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = iAct/User.h; sourceTree = "<group>"; };
+		9D03437F15DD104700030D61 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = iAct/User.m; sourceTree = "<group>"; };
 		9D094D5C15D00F5300A15642 /* OccuranceDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OccuranceDetailViewController.h; sourceTree = "<group>"; };
 		9D094D5D15D00F5300A15642 /* OccuranceDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OccuranceDetailViewController.m; sourceTree = "<group>"; };
-		9D173AB415C2B1430076B0B1 /* CoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataTableViewController.h; sourceTree = "<group>"; };
-		9D173AB515C2B1430076B0B1 /* CoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTableViewController.m; sourceTree = "<group>"; };
 		9D201B5A15C15C6300A038E4 /* thoughtModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = thoughtModel.xcdatamodel; sourceTree = "<group>"; };
 		9D231F6415A20E11005C79A3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		9D231F8015A25609005C79A3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -172,12 +175,6 @@
 		9D7DC38015D158C8005D6C3D /* toolbarhexpng@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toolbarhexpng@2x.png"; sourceTree = "<group>"; };
 		9D7DC38815D15B0D005D6C3D /* thoughtpng.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thoughtpng.png; sourceTree = "<group>"; };
 		9D7DC38A15D15B4B005D6C3D /* thoughtpng@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thoughtpng@2x.png"; sourceTree = "<group>"; };
-		9D81032F15C28EAC00AC36AD /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		9D81033015C28EAC00AC36AD /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		9D81033215C28EAC00AC36AD /* ThoughtOccurance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThoughtOccurance.h; sourceTree = "<group>"; };
-		9D81033315C28EAC00AC36AD /* ThoughtOccurance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThoughtOccurance.m; sourceTree = "<group>"; };
-		9D81033515C28EAC00AC36AD /* Thought.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Thought.h; sourceTree = "<group>"; };
-		9D81033615C28EAC00AC36AD /* Thought.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Thought.m; sourceTree = "<group>"; };
 		9D9A35A315CED742005746DC /* Bookmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bookmark.png; sourceTree = "<group>"; };
 		9D9A35A515CEDB6C005746DC /* tanButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tanButton.png; sourceTree = "<group>"; };
 		9D9A35A615CEDB6C005746DC /* tanButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tanButton@2x.png"; sourceTree = "<group>"; };
@@ -276,15 +273,13 @@
 		9D201B6515C1641700A038E4 /* coreData Model */ = {
 			isa = PBXGroup;
 			children = (
-				9D173AB415C2B1430076B0B1 /* CoreDataTableViewController.h */,
-				9D173AB515C2B1430076B0B1 /* CoreDataTableViewController.m */,
+				9D03437E15DD104700030D61 /* User.h */,
+				9D03437F15DD104700030D61 /* User.m */,
+				9D03437B15DD103200030D61 /* ThoughtOccurance.h */,
+				9D03437C15DD103200030D61 /* ThoughtOccurance.m */,
+				9D03437815DD0FF300030D61 /* Thought.h */,
+				9D03437915DD0FF300030D61 /* Thought.m */,
 				9D201B5915C15C6300A038E4 /* thoughtModel.xcdatamodeld */,
-				9D81033515C28EAC00AC36AD /* Thought.h */,
-				9D81033615C28EAC00AC36AD /* Thought.m */,
-				9D81033215C28EAC00AC36AD /* ThoughtOccurance.h */,
-				9D81033315C28EAC00AC36AD /* ThoughtOccurance.m */,
-				9D81032F15C28EAC00AC36AD /* User.h */,
-				9D81033015C28EAC00AC36AD /* User.m */,
 			);
 			name = "coreData Model";
 			path = ..;
@@ -703,16 +698,15 @@
 				9DDA5F0815A31A0200D775DF /* ThoughtDetailViewController.m in Sources */,
 				9DA9C5D915C0178C0036C59C /* RecordAgainViewController.m in Sources */,
 				9D201B5B15C15C6300A038E4 /* thoughtModel.xcdatamodeld in Sources */,
-				9D81033115C28EAC00AC36AD /* User.m in Sources */,
-				9D81033415C28EAC00AC36AD /* ThoughtOccurance.m in Sources */,
-				9D81033715C28EAC00AC36AD /* Thought.m in Sources */,
-				9D173AB615C2B1430076B0B1 /* CoreDataTableViewController.m in Sources */,
 				9DC6FA1115C5624200AE2AE1 /* PullToRefreshView.m in Sources */,
 				9DC503C015CA8E3F000CC93C /* PlaceMark.m in Sources */,
 				9D9A35B815CEE0AD005746DC /* ACTManipilationViewController.m in Sources */,
 				9D9A35BD15CEE2AE005746DC /* PostRatingViewController.m in Sources */,
 				9D094D5E15D00F5300A15642 /* OccuranceDetailViewController.m in Sources */,
 				9DF4E1A315D049C800CCDD1B /* UIView+Animation.m in Sources */,
+				9D03437A15DD0FF300030D61 /* Thought.m in Sources */,
+				9D03437D15DD103200030D61 /* ThoughtOccurance.m in Sources */,
+				9D03438015DD104700030D61 /* User.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,11 +10,12 @@
 
 @interface ViewController  ()
 
-@property AppDelegate *sharedData;
+@property AppDelegate *sharedData; /**< Singleton class containing the model */
 
 @end
 
 @implementation ViewController
+
 @synthesize emailAddressField;
 @synthesize passwordField;
 @synthesize managedObjectContext = __managedObjectContext;
@@ -22,6 +23,11 @@
 @synthesize fetchedResultsController = __fetchedResultsController;
 @synthesize sharedData;
 
+
+/**
+Sets up link to CoreData and user defaults property list when view appears. If the user has already logged in,
+ an automatic transition to the main menu will take place.
+ */
 -(void)viewDidAppear:(BOOL)animated {
     
     //get the database
@@ -42,7 +48,6 @@
 {
     [self customButtons];
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)viewDidUnload
@@ -54,7 +59,6 @@
     [self setPasswordField:nil];
     [self setSignInButton:nil];
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -62,18 +66,22 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
-
-//handle login checking once button is pressed
+/**
+handles login checking once login button is pressed
+ */
 - (IBAction)LoginButton:(id)sender {
     
     //get the username and password the user has entered.
     NSString *email = emailAddressField.text;
     NSString *password = passwordField.text;
     
-    //validate using restkit to server
+    //validate login details using restkit connection to server
     [self validateLogin:email withPassword:password];
 }
 
+/**
+ Hides keyboard if user taps screen.
+ */
 - (IBAction)hideKeyboard:(id)sender {
     [self.emailAddressField resignFirstResponder];
     [self.passwordField resignFirstResponder];
@@ -81,7 +89,11 @@
 
 #pragma mark - Online user validation
 
-//this method validates login with server
+/**
+ Validates user's login details with iACT server
+ @param userName The user email
+ @param password The user's password
+ */
 - (void)validateLogin:(NSString *)userName withPassword:(NSString *)password {
     //construct parameter dictionary for the login attempt
     NSDictionary* params = [NSDictionary dictionaryWithObjectsAndKeys:userName, @"email", password, @"password", nil];
@@ -91,7 +103,10 @@
 
 
 
-//this method listens for the server response - handled because we set the delegate to self
+/**
+ This method responds to login attempt response from iACT server. If login fails, error message displayed. If
+ successful login proceeds and segues to main menu view controller.
+ */
 - (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {    
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     
@@ -107,7 +122,6 @@
                                                    otherButtonTitles: nil];
         [incorrectPasswordDialog show];
     }
-    
     
     if ([request isPOST]) {  
         NSLog(@"server response: %@", [response bodyAsString]);
@@ -144,6 +158,11 @@
 
 #pragma mark - Database setup/login
 
+/**
+ Creates a user entry in the data model. First checks to see if user already present, if not adds to to model
+ @param email The user email
+ @param name The user's password
+ */
 - (void)modelLoginWithEmail:(NSString *)email andName:(NSString *)name {
     NSError *error = nil;
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"User"];
@@ -154,45 +173,34 @@
     
     if (!error){
         if (count > 0){
-            //it was found
-            //NSLog(@"LOGIN SUCCESS %d", count);
-            //set logged in user to found user
             NSArray *userArray = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
             User *user = [userArray objectAtIndex:0];
-            sharedData.loggedInUser = user;
-            //NSLog(@"this user is called %@", sharedData.loggedInUser.name);
-            //NSLog(@"this user is called %@", user.name);
-            
+            sharedData.loggedInUser = user; 
         }
         //if user not in the DB, add the user
         else {
-            //NSLog(@"It was NOT %d", count);
             User *user = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:self.managedObjectContext];
             user.name = name;
             user.email = self.emailAddressField.text;
             user.password = self.passwordField.text;
             sharedData.loggedInUser = user;
-            //NSLog(@"this user is called %@", sharedData.loggedInUser.name);
-            //NSLog(@"this user is called %@", user.name);
             [self.managedObjectContext save:nil];
         }
     }    
     
 }
 
+/**
+ Applies custom formatting to UIButtons.
+ */
 - (void)customButtons {
-    //load the images
     UIImage *blueButtonImage = [[UIImage imageNamed:@"blueButton.png"]
                                 resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
     UIImage *blueButtonImageHighlight = [[UIImage imageNamed:@"blueButtonHighlight.png"]
                                          resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
     
-
-    
     [signInButton setBackgroundImage:blueButtonImage forState:UIControlStateNormal];
     [signInButton setBackgroundImage:blueButtonImageHighlight forState:UIControlStateHighlighted];
 }
-
-
 
 @end

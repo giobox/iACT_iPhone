@@ -15,23 +15,17 @@
 
 @interface ThoughtHistoryViewController ()
 
-@property (strong, nonatomic) NSMutableArray *thoughtArray;
-@property (strong, nonatomic) AppDelegate *sharedData;
-@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
-@property (strong, nonatomic) Thought *thought;
-
-@property (strong, nonatomic) PullToRefreshView *pull;
-
-@property (nonatomic) BOOL editing;
-
+@property (strong, nonatomic) NSMutableArray *thoughtArray; /**< Array of thoughts retrieved from CoreData model. */
+@property (strong, nonatomic) AppDelegate *sharedData; /**< App delegate class containing the CoreData model. */
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext; /**< CoreData model.  */
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController; /**< CoreData model.  */
+@property (strong, nonatomic) Thought *thought; /**< Selected thought. */
+@property (strong, nonatomic) PullToRefreshView *pull; /**< Pull to refresh functionality.  */
+@property (nonatomic) BOOL editing; /**< Boolean indicating whether history editing is in progress */
 
 @end
 
 @implementation ThoughtHistoryViewController
-{
-   //PullToRefreshView *pull;
-}
 
 @synthesize editButton;
 @synthesize editing;
@@ -57,38 +51,26 @@
     //when view loads point to the model so we can start getting some data
     sharedData = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     self.managedObjectContext = sharedData.managedObjectContext;
-    [self getThoughtData];
-        
+    [self getThoughtData];        
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     //setup pull to refresh
-    
     pull = [[PullToRefreshView alloc] initWithScrollView:(UIScrollView *) self.tableView];
     [pull setDelegate:self];
     [self.tableView addSubview:pull];
-
-    
 }
 
 -(void) viewDidDisappear:(BOOL)animated {
     [pull removeFromSuperview];
-    //need the dealloc method on Pull to trigger- overwise KVO is left watching a table that aint there anymore and causes memory
+    //need the dealloc method on Pull to trigger- overwise KVO is left watching a table that isn't there anymore and causes memory
     //addressing fault.
     [self setPull:nil];
 }
 
 - (void)viewDidUnload
 {
-    //[[NSNotificationCenter defaultCenter] removeObserver:self];
-    //[[NSNotificationCenter defaultCenter] removeObserver:self forKeyPath:@"contentOffset"];
-    //[pull removeFromSuperview];
-    //[self.pull removeFromSuperview];
-    
-    //[pull setDelegate:nil];
-    
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
     [pull removeFromSuperview];
@@ -101,7 +83,6 @@
     [self setPull:nil];
     
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
 }	
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -109,30 +90,25 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+/**
+ Method returns gets all user's thoughts to populate table with.
+ */
 - (void)getThoughtData
 {
     NSError *error = nil;
-    // 1 - Decide what Entity you want
+    // 1 Decide what Entity you want
     NSString *entityName = @"Thought"; // Put your entity name here
-    NSLog(@"Setting up a Fetched Results Controller for the Entity named %@", entityName);
     
-    // 2 - Request that Entity
+    // 2 Request that Entity
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entityName];
     
-    // 3 - Filter it if you want
+    // 3 Filter it
     [request setPredicate:[NSPredicate predicateWithFormat:@"hasUser == %@", sharedData.loggedInUser]];
     
-    // 4 - Sort it if you want
-    //request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name"
-    //                                                                               ascending:YES
-    //                                                                              selector:@selector(localizedCaseInsensitiveCompare:)]];
-    
-    // 5 - Fetch it
+    // 4 Fetch it
     
     NSArray *tempArray = [self.managedObjectContext executeFetchRequest:request error:&error];
     thoughtArray = [NSMutableArray arrayWithArray:tempArray];
-    
-    NSLog(@"the number of thoughts is %d", [thoughtArray count]);
 }
 
 
@@ -245,8 +221,10 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         //get the thought and remove it from the model
         Thought *thoughtToDelete = [thoughtArray objectAtIndex:indexPath.row];
+       NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        NSString *userID = [userDefaults objectForKey:@"ID"];
         
-        NSDictionary* params = [NSDictionary dictionaryWithObjectsAndKeys: @"1", @"id", thoughtToDelete.content ,@"content" , nil];
+        NSDictionary* params = [NSDictionary dictionaryWithObjectsAndKeys: userID, @"id", thoughtToDelete.content ,@"content" , nil];
         [[RKClient sharedClient] post:@"/deletethought" params:params delegate:self];
         
         
@@ -261,14 +239,18 @@
 
 #pragma mark - pull to refresh
 
-
+/**
+ Called when user pulls to refresh. Triggers syncing of new thoughts.
+ */
 - (void)pullToRefreshViewShouldRefresh:(PullToRefreshView *)view;
 {
     //launch as background thread
     [self performSelectorInBackground:@selector(getNewThoughtData) withObject:nil];
 }
 
-
+/**
+ Helper method to obtain new thoughts from iACT website using restkit.
+ */
 -(void) getNewThoughtData
 {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
@@ -289,6 +271,9 @@
  
 
 //this method listens for the server response - handled because we set the delegate to self
+/**
+ Method waits for response from pull to refresh request, updates table when response arrives and dismisses pull to refresh indicator.
+ */
 - (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     
@@ -320,7 +305,6 @@
                                                                      options:kNilOptions
                                                                        error:&error];
             
-            
            //itterate through the new thoughts and add them!
             for(int x=0;x<jsonDict.count;x++) {
                 NSLog(@"The thought is %@", [[jsonDict objectAtIndex:x] objectForKey:@"content"]);
@@ -335,24 +319,7 @@
             [self getThoughtData];
             [self.tableView reloadData];
             [pull finishedLoading];
-
-            
-            
-            
-            //id jsonObjects = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
-             //NSArray *json = [NSJSONSerialization JSONObjectWithData:jsonData options:kNilOptions error:&error];
-           // NSLog(@"%d",[json count]);
-           // NSArray *keys = [json allKeys];
-            
-            // values in foreach loop
-            //for (NSString *key in json) {
-              //  NSLog(@"%@ is %@",key, [jsonObjects objectForKey:key]);
-            //}
-            //for (NSString *t in thoughtContent) {
-              //   NSLog(@"%@", thoughtContent);
-            //}
         }
-        
     }
 }
 
@@ -361,6 +328,5 @@
 //doe nothing with it.
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
 }
-
 
 @end

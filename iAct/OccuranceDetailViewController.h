@@ -12,14 +12,15 @@
 #import "ThoughtOccurance.h"
 #import "Thought.h"
 
+/**
+This class controls a view displaying details of an idividual thought occurrence.
+ */
 @interface OccuranceDetailViewController : UIViewController
 
-@property (strong, nonatomic) Thought *thought;
-@property (strong, nonatomic) ThoughtOccurance *occurance;
-
-
-@property (strong, nonatomic) IBOutlet MKMapView *ThoughtOccuranceMap;
-@property (strong, nonatomic) IBOutlet UILabel *thoughtDescriptionLabel;
-@property (strong, nonatomic) IBOutlet UILabel *thoughtRatingLabel;
+@property (strong, nonatomic) Thought *thought; /**< Thought to which the occurence belongs.  */
+@property (strong, nonatomic) ThoughtOccurance *occurance; /**< occurence being displayed.  */
+@property (strong, nonatomic) IBOutlet MKMapView *ThoughtOccuranceMap; /**< Map displaying the occurence. */
+@property (strong, nonatomic) IBOutlet UILabel *thoughtDescriptionLabel; /**< Label with thought content. */
+@property (strong, nonatomic) IBOutlet UILabel *thoughtRatingLabel; /**< Label displaying thought rating. */
 
 @end

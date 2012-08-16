@@ -13,17 +13,14 @@
 
 @interface ThoughtRecorderViewController ()
 
-//Location manager instance
-
-@property (strong, nonatomic) CLLocation *currentLocation;
-
-//thought and thought occurance being recorded
-@property Thought *thought;
-@property ThoughtOccurance *occurance;
+@property (strong, nonatomic) CLLocation *currentLocation; /**< GPS Location of thought  */
+@property Thought *thought; /**< Thought being recorded.  */
+@property ThoughtOccurance *occurance; /**< Occurence of thought being recorded.  */
 
 @end
 
 @implementation ThoughtRecorderViewController
+
 @synthesize thoughtDescription;
 @synthesize thoughtRatingSlider;
 @synthesize thoughtRating;
@@ -33,16 +30,12 @@
 @synthesize thought;
 @synthesize occurance;
 @synthesize newThought;
-
-
 @synthesize managedObjectContext = __managedObjectContext;
-
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
@@ -56,11 +49,8 @@
     self.locMan.delegate = self;
     //self.locMan.desiredAccuracy = kCLLocationAccuracyBest;
     locMan.distanceFilter= 200;
-    
     [locMan startUpdatingLocation];
-    
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
 }
 
 - (void)viewDidUnload
@@ -72,10 +62,8 @@
     [self setLocMan:nil];
     [self setCurrentLocation:nil];
     [self setThought:nil];
-    [self setOccurance:nil];
-    
+    [self setOccurance:nil];    
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -83,17 +71,28 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+/**
+ Hides keyboard if user taps screen.
+ */
 - (IBAction)hideKeyboard:(id)sender {
     
     [self.thoughtDescription resignFirstResponder];
-    
 }
 
+/**
+Method updates rating label in real time as user changes rating slider.
+ */
 - (IBAction)userChangedThoughtRating:(id)sender {
     //update number output for thought when slider value is changed
     self.thoughtRating.text = [NSString stringWithFormat:@"%1.1f", self.thoughtRatingSlider.value];
 }
 
+/**
+Gets thought parameters and constructs the thought object for saving to the CoreData model. Also creates that thought's
+ first occurence. A segue to the manipulate thought view is then performed. First performs a search to see if this thought has
+ been entered before, and if it has just creates a new occurence. If this is the first time this thought has been created, both thought
+ and occurence will be created.
+ */
 - (IBAction)recordThought:(id)sender {
     AppDelegate *sharedData = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     self.managedObjectContext = sharedData.managedObjectContext;
@@ -168,7 +167,10 @@
 
 #pragma mark - location manager methods
 
-//This protocol method gets location updates
+/**
+This location manager protocol method gets location updates. As each update arrives the currentLocation instance variable is updated
+ to record new position.
+ */
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
     self.currentLocation=newLocation;
 }
@@ -188,6 +190,9 @@
     }
 }
 
+/**
+ Prepares data for sending to next view controller. Passes thought and occurence to next view controller.
+ */
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[ segue identifier] isEqualToString:@"manipulateThought"]) {
         //pass the created thought and occurance to the next view
@@ -198,9 +203,10 @@
     }
 } 
 
-
-    
-
+/**
+ Validates user's input to ensure all fields filled. If not, an error message is displayed.
+ @return BOOL Boolean indicating whether data was valid or not.
+ */
 - (BOOL)validateInput {
     if ([self.thoughtDescription.text isEqualToString:@""]) {
         UIAlertView *incompleteThoughtDialog;
@@ -216,11 +222,9 @@
             return YES;
 }
 
-- (void)addThoughtToModel {
-    
-}
-
-
+/**
+ Applies custom formatting to UIButtons.
+ */
 - (void)customButtons {
     //load the images
     UIImage *blueButtonImage = [[UIImage imageNamed:@"blueButton.png"]
@@ -230,8 +234,6 @@
     
     [recordThoughtButton setBackgroundImage:blueButtonImage forState:UIControlStateNormal];
     [recordThoughtButton setBackgroundImage:blueButtonImageHighlight forState:UIControlStateHighlighted];
-    
-    
 }
 
 @end

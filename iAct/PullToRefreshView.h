@@ -37,6 +37,9 @@ typedef enum {
 
 @protocol PullToRefreshViewDelegate;
 
+/**
+Class handles the pull to refresh interface element, used to download new thoughts from iACT online.
+ */
 @interface PullToRefreshView : UIView {
 	PullToRefreshViewState state;
     

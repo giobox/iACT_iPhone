@@ -28,14 +28,12 @@
 {
     [self customButtons];
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
 }
 
 - (void)viewDidUnload
 {
     [self setSendFeedbackButton:nil];
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -43,6 +41,9 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+/**
+ This method launches a pre-populated email sending view. Allows the user to easily email feedback on the application
+ */
 - (IBAction)sendFeedback:(id)sender {
     //create an email modal display
     MFMailComposeViewController *mailComposer;
@@ -61,24 +62,18 @@
     [self dismissModalViewControllerAnimated:YES];
 }
 
-
-
-    
+/**
+ Applies custom formatting to UIButtons
+ */
 - (void)customButtons {
-    //load the images
-    
     UIImage *whiteButtonImage = [[UIImage imageNamed:@"whiteButton.png"]
                                  resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
     UIImage *whiteButtonImageHighlight = [[UIImage imageNamed:@"whiteButtonHighlight.png"]
                                           resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
-    
-    // Set the background for the buttons
-    
+        
     [sendFeedbackButton setBackgroundImage:whiteButtonImage forState:UIControlStateNormal];
     [sendFeedbackButton setBackgroundImage:whiteButtonImageHighlight forState:UIControlStateHighlighted];
     
 }
-
-
 
 @end

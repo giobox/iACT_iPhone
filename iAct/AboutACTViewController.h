@@ -12,9 +12,13 @@
 #import "AppDelegate.h"
 #import "User.h"
 
+/**
+ Class to display the about iACT view. Also has a button to send feedback using the MessageUI library.
+ */
 @interface AboutACTViewController : UIViewController <MFMailComposeViewControllerDelegate>
 
 - (IBAction)sendFeedback:(id)sender;
 
-@property (strong, nonatomic) IBOutlet UIButton *sendFeedbackButton;
+@property (strong, nonatomic) IBOutlet UIButton *sendFeedbackButton; /**< Send feedback button. */
+
 @end

@@ -23,11 +23,14 @@
 {
 self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
 if (self) {
-    // Custom initialization
 }
 return self;
 }
 
+/**
+ Configures view upon loading. Sets up gesture recognisers for manipulation of the thought content label. Also hides the back button
+ on the UINavigationBar and sets background to a random colour.
+ */
 - (void)viewDidLoad
 {
     thoughtDescriptionLabel.userInteractionEnabled = YES;
@@ -55,10 +58,7 @@ return self;
     UIColor *bgColor = [self randomColor];
     self.view.backgroundColor = bgColor;
     
-    
-    
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
 }
 
 - (void)viewDidUnload
@@ -68,7 +68,6 @@ return self;
     [self setThought:nil];
     [self setThoughtDescriptionLabel:nil];
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -76,6 +75,9 @@ return self;
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+/**
+ Prepares data for sending to next view controller. Passes thought and occurence to next view controller.
+ */
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[ segue identifier] isEqualToString:@"saveThought"]) {
         //pass the created thought and occurance to the next view
@@ -97,6 +99,9 @@ return self;
                 duration:1.0 option:0];	// above the tapped button
 }
 
+/**
+ Animates movement of thought description label to tapped location on the screen.
+ */
 - (IBAction)moveToTap:(id)sender {
 }
 
@@ -113,7 +118,9 @@ return self;
 	[gesture setTranslation:CGPointZero inView:label];
 }
 
-
+/**
+ Animates scaling of thought description label in response to pinch gestures.
+ */
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     float scaleFactor = 1;
     float angle = 0;
@@ -136,24 +143,23 @@ return self;
 
 }
 
+/**
+ Rotates thought display label in response to rotate gesture.
+ */
 -(void)rotate:(id)sender {
-
-    
     if([(UIRotationGestureRecognizer*)sender state] == UIGestureRecognizerStateEnded) {
-        
         lastRotation = 0.0;
         return;
     }
     
     CGFloat rotation = 0.0 - (lastRotation - [(UIRotationGestureRecognizer*)sender rotation]);
-    
+
     CGAffineTransform currentTransform = thoughtDescriptionLabel.transform;
     CGAffineTransform newTransform = CGAffineTransformRotate(currentTransform,rotation);
     
     [thoughtDescriptionLabel setTransform:newTransform];
     
     lastRotation = [(UIRotationGestureRecognizer*)sender rotation];
-    //[self showOverlayWithFrame:thoughtDescriptionLabel.frame];
 }
 
 -(void)scale:(id)sender {
@@ -174,6 +180,10 @@ return self;
 
 
 //obtained from BOOKMARK
+/**
+ Helper method to choose a random colour
+ @return UIColor a random colour
+ */
 - (UIColor *) randomColor {
     CGFloat hue = ( arc4random() % 256 / 256.0 );  //  0.0 to 1.0
     CGFloat saturation = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from white

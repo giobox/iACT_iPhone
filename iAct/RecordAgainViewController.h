@@ -12,13 +12,17 @@
 #import "ThoughtOccurance.h"
 #import "ACTManipilationViewController.h"
 
+/**
+Record again view controller. Sets up a thought for recording a new occurence from the thought history screen.
+ */
 @interface RecordAgainViewController : UIViewController <CLLocationManagerDelegate>
-@property (strong, nonatomic) IBOutlet UILabel *thoughtDescriptionLabel;
-@property (strong, nonatomic) Thought *thought;
-@property (strong, nonatomic) CLLocationManager *locMan;
-@property (strong, nonatomic) IBOutlet UISlider *thoughtRatingSlider;
-@property (strong, nonatomic) IBOutlet UIButton *saveButton;
-@property (strong, nonatomic) IBOutlet UILabel *thoughtRatingLabel;
+
+@property (strong, nonatomic) IBOutlet UILabel *thoughtDescriptionLabel; /**< Label containing thought description.  */
+@property (strong, nonatomic) Thought *thought; /**< The thought having a new occurence recorded.  */
+@property (strong, nonatomic) CLLocationManager *locMan; /**< Location manager to record GPS position of occurence.  */
+@property (strong, nonatomic) IBOutlet UISlider *thoughtRatingSlider; /**< Rating slider for intial thought rating.  */
+@property (strong, nonatomic) IBOutlet UIButton *saveButton; /**< Button to trigger segue to manipulation screen.  */
+@property (strong, nonatomic) IBOutlet UILabel *thoughtRatingLabel; /**< Label displaying the thought's rating.  */
 
 
 - (IBAction)thoughtRatingValueChanged:(id)sender;

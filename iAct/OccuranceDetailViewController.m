@@ -21,7 +21,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
@@ -32,7 +31,6 @@
     thoughtRatingLabel.text = [occurance.postRating stringValue];
     [self setupMap];
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
 }
 
 
@@ -45,7 +43,6 @@
     [self setThoughtDescriptionLabel:nil];
     [self setThoughtRatingLabel:nil];
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -56,6 +53,9 @@
 
 #pragma mark - Mapping
 
+/**
+Helper method to setup the map. Drops a placemark pin on the location of the occurence.
+ */
 - (void)setupMap {
         CLLocationCoordinate2D tempLoc;
         tempLoc.latitude = [self.occurance.latitude doubleValue];
@@ -83,6 +83,10 @@
 #define ANNOTATION_REGION_PAD_FACTOR 1.15
 #define MAX_DEGREES_ARC 360
 //size the mapView region to fit its annotations
+
+/**
+Helper method to resize map to fit occurence location pin.
+ */
 - (void)zoomMapViewToFitAnnotations:(MKMapView *)mapView animated:(BOOL)animated
 {
     NSArray *annotations = mapView.annotations;

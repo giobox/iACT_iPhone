@@ -34,20 +34,19 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
-
-
 
 - (void)viewDidLoad
 {
     [self customButtons];
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 
+/**
+ When view loads accesss core data model to get all occurences of the thought. Also sets label to display thought content.
+ */
 -(void)viewWillAppear:(BOOL)animated {
     sharedData = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     self.managedObjectContext = sharedData.managedObjectContext;
@@ -57,11 +56,8 @@
     
 }
 
--(void) viewDidAppear:(BOOL)animated {
-    
-    //update the map
+-(void) viewDidAppear:(BOOL)animated {    
     [self setupMap];
-    //insert text update here
 }
 
 - (void)viewDidUnload
@@ -76,46 +72,42 @@
     [self setThought:nil];
     [self setRecordAgainButton:nil];
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
 }
-
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-//Methods for table view
+#pragma mark - methods for occurences table
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     return [occuranceArray count];
 }
 
-
+/**
+ Method to get thought occurences from CoreData model
+ */
 -(void)getInstances {
     NSError *error = nil;
-    // 1 - Decide what Entity you want
+    // 1. Decide what Entity you want
     NSString *entityName = @"ThoughtOccurance"; // Put your entity name here
     NSLog(@"Setting up a Fetched Results Controller for the Entity named %@", entityName);
     
-    // 2 - Request that Entity
+    // 2. Request that Entity
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entityName];
     
-    // 3 - Filter it if you want
+    // 3. Filter it if you want
     [request setPredicate:[NSPredicate predicateWithFormat:@"hasThought == %@", thought]];
     
-    // 4 - Sort it if you want
-    //request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name"
-    //                                                                               ascending:YES
-    //                                                                              selector:@selector(localizedCaseInsensitiveCompare:)]];
-    
-    // 5 - Fetch it
+    // 4. Fetch it
     occuranceArray = [self.managedObjectContext executeFetchRequest:request error:&error];
     NSLog(@" %@ ", thought.content);
     NSLog(@"the number of thoughts is %d", [occuranceArray count]);
 }
 
-
+//table heading titles
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     return @"History";
 }
@@ -134,6 +126,9 @@
     return thoughtCell;
 }
 
+/**
+ Prepares data for sending to next view controller.
+ */
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"recordAgainSegue"]) {
         //the segue sender is the row on the table, we cast this to get its index
@@ -155,6 +150,9 @@
 
 #pragma mark - Mapping methods
 
+/**
+ Helper method to display pins on map showing all occurences of the thought.
+ */
 - (void)setupMap {
     //loop through all occurances and generate pins for map
     NSMutableArray *mapPinArray = [[NSMutableArray alloc] init];
@@ -191,6 +189,10 @@
 #define ANNOTATION_REGION_PAD_FACTOR 1.15
 #define MAX_DEGREES_ARC 360
 //size the mapView region to fit its annotations
+
+/**
+ This helper method resizes the map to fit all occurence pins.
+ */
 - (void)zoomMapViewToFitAnnotations:(MKMapView *)mapView animated:(BOOL)animated
 {
     NSArray *annotations = mapView.annotations;
@@ -229,6 +231,9 @@
     [mapView setRegion:region animated:animated];
 }
 
+/**
+ Applies custom formatting to UIButtons.
+ */
 - (void)customButtons {
     //load the images
     UIImage *blackButtonImage = [[UIImage imageNamed:@"blueButton.png"]

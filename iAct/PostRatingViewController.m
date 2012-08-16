@@ -18,7 +18,6 @@
 
 @implementation PostRatingViewController
 
-
 @synthesize thought;
 @synthesize occurance;
 @synthesize newThought;
@@ -33,7 +32,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
@@ -45,7 +43,6 @@
     userDefaults = [NSUserDefaults standardUserDefaults];
     [self customButtons];
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
 }
 
 - (void)viewDidUnload
@@ -59,7 +56,6 @@
     [self setDoneButton:nil];
     [self setThoughtRatingLabel:nil];
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -67,6 +63,9 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+/**
+ Method called when save button pressed. Adds thought to model uploads thought to website.
+ */
 - (IBAction)finishedRating:(id)sender {
     //add the second rating to the thought occurance object
     occurance.postRating = [NSNumber numberWithFloat:secondRatingSlider.value];
@@ -85,26 +84,34 @@
 }
 
 
-//Add a brand new thought to iACT server
+/**
+ Helper method submits recorded thought to iACT website
+ */
 -(void)uploadThoughtWithThought:(Thought *)uploadThought andOccurance:(ThoughtOccurance *)newOccurance {
     NSString *userID = [userDefaults objectForKey:@"ID"];
     NSDictionary* parameters = [NSDictionary dictionaryWithObjectsAndKeys:userID, @"id", uploadThought.content, @"content", newOccurance.initialRating, @"InitialRating", newOccurance.postRating, @"postRating",  nil];
     [[RKClient sharedClient] post:@"/iphonerecordthought" params:parameters delegate:nil];
 }
 
-//this method is used to add occurance to an existing thought
+/**
+ Helper method submits recorded occurance of an existing thought to iACT website
+ */
 - (void)uploadThoughtOccurance:(ThoughtOccurance *)thoughtOccurance forThought:(Thought *)uploadThought {
     NSString *userID = [userDefaults objectForKey:@"ID"];
     NSDictionary* parameters = [NSDictionary dictionaryWithObjectsAndKeys:userID, @"id", uploadThought.content, @"content", thoughtOccurance.initialRating, @"InitialRating", thoughtOccurance.postRating, @"postRating",  nil];
     [[RKClient sharedClient] post:@"/iphonerecordoccurance" params:parameters delegate:nil];
 }
 
+/**
+ Updates thought rating label value as slider is moved.
+ */
 -(void)userChangedThoughtRating:(id)sender {
-    //update number output for thought when slider value is changed
     self.thoughtRatingLabel.text = [NSString stringWithFormat:@"%1.1f", self.secondRatingSlider.value];
 }
 
-
+/**
+ Applies custom formatting to UIButtons.
+ */
 - (void)customButtons {
     //load the images
     UIImage *blueButtonImage = [[UIImage imageNamed:@"blueButton.png"]
@@ -114,9 +121,6 @@
     
     [doneButton setBackgroundImage:blueButtonImage forState:UIControlStateNormal];
     [doneButton setBackgroundImage:blueButtonImageHighlight forState:UIControlStateHighlighted];
-    
-    
 }
-
 
 @end
